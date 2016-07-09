@@ -8,7 +8,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
-    if @user.save
+    @profile = Profile.new
+    @profile.user = @user
+    @user.profile = @profile
+    if @user.save && @profile.save
       session[:user_id] = @user.id
       redirect_to new_user_profile_path(@user), notice: "Logged In!"
     else
