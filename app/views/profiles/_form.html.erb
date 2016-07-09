@@ -1,0 +1,15 @@
+<%= form_for @profile do |f| %>
+  <div>
+    <%= f.label :twitter %>
+    <%= f.text_field :twitter %>
+  </div>
+  <div>
+    <%= f.label :linkedin %>
+    <%= f.text_field :linkedin %>
+  </div>
+  <div>
+    <%= f.label :github %>
+    <%= f.text_field :github %>
+  </div>
+  <%= f.submit "Add Project"%>
+<% end %>
