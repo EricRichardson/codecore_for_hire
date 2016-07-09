@@ -1,0 +1,4 @@
+$('$skills').prepend("<%= j(render('/skills/skill', {skill: @skill})) %>");
+
+<% @skill = Skill.new %>
+$('#skill-form').html('<%= j render "form" %>')
