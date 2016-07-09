@@ -1,0 +1,17 @@
+<h1>Add Profile Info</h1>
+
+<%= form_for @profile, {url: user_profiles_path} do |f| %>
+  <div>
+    <%= f.label :twitter %>
+    <%= f.text_field :twitter %>
+  </div>
+  <div>
+    <%= f.label :linkedin %>
+    <%= f.text_field :linkedin %>
+  </div>
+  <div>
+    <%= f.label :github %>
+    <%= f.text_field :github %>
+  </div>
+  <%= f.submit "Add Project"%>
+<% end %>
