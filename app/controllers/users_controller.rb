@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       session[:user_id] = @user.id
-      redirect_to new_session_path, notice: "Logged In!"
+      redirect_to new_user_profile_path(@user), notice: "Logged In!"
     else
       render :new
     end

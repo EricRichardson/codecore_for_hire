@@ -2,16 +2,21 @@ class ProfilesController < ApplicationController
 
   def new
     @profile = Profile.new
+    @profile.user = User.find params[:user_id]
   end
 
   def create
     @profile = Profile.new profile_params
     @profile.user = User.find params[:user_id]
     if @profile.save
-      redirect_to user_profile_path(@profile.user @profile)
+      redirect_to user_profile_path(@profile.user, @profile), notice: "Updated Project"
     else
       render :new
     end
+  end
+
+  def show
+    @profile = Profile.find params[:id]
   end
 
   def edit
