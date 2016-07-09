@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       session[:user_id] = @user.id
-      redirect_to new_session_path, notice: "Logged In!"
+      redirect_to new_user_profile_path(@user), notice: "Logged In!"
     else
       render :new
     end
@@ -19,11 +19,20 @@ class UsersController < ApplicationController
   def show
   end
 
+  def index
+    @page = params[:page].to_i
+    @users = User.order(created_at: :desc).page(@page).per(10)
+  end
+
   def edit
+    @user = User.find params[:id]
   end
 
   def update
-
+    @user = User.find params[:id]
+    if @user.update user_params
+      redirect_to root_path
+    end
   end
 
 
