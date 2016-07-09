@@ -1,4 +1,4 @@
-<%= simple_form_for @skill do |f| %>
+<%= simple_form_for [@user, @profile, @skill] do |f| %>
   <%= f.input :name %>
   <%= f.input :rating %>
   <%= f.button :submit, class: "btn-primary" %>
