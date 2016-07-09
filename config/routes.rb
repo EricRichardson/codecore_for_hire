@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :users do
-    resources :profile
+    resources :profiles
   end
+  resources :educations
 
 end
