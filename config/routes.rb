@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :search, param: :search
+
   resources :sessions, only: [:create, :new, :destroy] do
     delete :destroy, on: :collection
   end
