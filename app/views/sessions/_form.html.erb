@@ -1,6 +1,5 @@
 <div id="loginModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
     <div class="modal-content login-1">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -8,21 +7,32 @@
       </div>
       <div class="modal-body">
         <%= form_tag sessions_path do %>
-          <div>
-            <%= label_tag :email %><br>
-            <%= email_field_tag :email %>
-          </div><br>
-          <div>
-            <%= label_tag :password %><br>
-            <%= password_field_tag :password %>
-          </div><br>
-          <%= submit_tag "Sign In" %>
+        <form class="form-horizontal">
+          <fieldset>
+              <div class="form-group">
+                <%= label_tag :email,"Email:", class: "col-lg-2 control-label" %>
+                <div class="col-lg-10">
+                  <%= email_field_tag :email, nil, {:class => "form-control", :style => "padding: 15px"} %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= label_tag :password, "Password:", class: "col-lg-2 control-label" %>
+                <div class="col-lg-10">
+                  <%= password_field_tag :password, nil, class: "form-control" %>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                  <%= submit_tag "Sign in", class: "btn btn-primary" %>
+                </div>
+              </div>
+          </fieldset>
+        </form>
         <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
-
   </div>
 </div>

@@ -8,6 +8,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new profile_params
     @profile.user = User.find params[:user_id]
+    @profile.user.profile = @profile
     if @profile.save
       redirect_to user_profile_path(@profile.user, @profile), notice: "Updated Project"
     else
@@ -35,7 +36,7 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:twitter, :github, :linkedin)
+    params.require(:profile).permit(:twitter, :github, :linkedin, :resume)
   end
 
 end
