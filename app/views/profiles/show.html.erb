@@ -15,13 +15,6 @@
   <%= link_to "Add Skills", user_profile_projects_path(@profile.user, @profile) %>
 </div>
 
-<div>
-  <%= link_to fa_icon("linkedin") %>
-  <%= link_to fa_icon("twitter") %>
-  <%= link_to fa_icon("github") %>
-  <%= link_to fa_icon("download") %>
-</div>
-
 <div id="prorfile-picture">
   <%= image_tag @profile.user.image.url(:medium) %>
   <%#= image_tag @question.image.url(:medium) %>
@@ -29,6 +22,26 @@
 
 <div>
   <%= @profile.user.full_name %>
+</div>
+
+<div>
+  <%= link_to fa_icon("linkedin") %>
+  <%= link_to fa_icon("twitter") %>
+  <%= link_to fa_icon("github") %>
+  <%= link_to fa_icon("download"), @profile.resume.url %>
+</div>
+
+<div>
+  <label>Skills</label>
+</div>
+<div>
+  <label>Educations</label>
+</div>
+<div>
+  <label>Experiences</label>
+</div>
+<div>
+  <label>Projects</label>
 </div>
 
 <%= button_to "Contact", :class => "contact-btn" %>
