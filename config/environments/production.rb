@@ -1,6 +1,6 @@
 Rails.application.configure do
 
-  config.action_controller.default_url_options = { host: 'codecodeforhire.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'codecoreforhire.herokuapp.com' }
 
   ActionMailer::Base.smtp_settings = {
  :user_name => ENV['SENDGRID_USERNAME'],
