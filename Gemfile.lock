@@ -179,14 +179,11 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
->>>>>>> 15e9c9afcd10000e93c70808fda07f9187e75407
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
-=======
   awesome_print
   bcrypt (~> 3.1.7)
   bootstrap-sass (~> 3.3.6)
