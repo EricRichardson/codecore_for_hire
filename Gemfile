@@ -6,6 +6,8 @@ gem 'simple_form'
 gem 'quiet_assets'
 # Use kaminari to paginate pages
 gem 'kaminari'
+gem 'carrierwave'
+gem "mini_magick"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
