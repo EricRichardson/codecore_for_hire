@@ -1,5 +1,34 @@
 <h1>Profile Page</h1>
-
+<div>
 <%= link_to "Add Educations", user_profile_educations_path(@profile.user, @profile)%>
+</div>
+<div>
 <%= link_to "Add Experiences", user_profile_experiences_path(@profile.user, @profile) %>
+</div>
+<div>
 <%= link_to "Add Projects", user_profile_projects_path(@profile.user, @profile) %>
+</div>
+<div>
+<%= link_to "Add Skills", user_profile_projects_path(@profile.user, @profile) %>
+</div>
+<div>
+<%= link_to "linkedin" %>
+</div>
+<div>
+<%= link_to "twitter" %>
+</div>
+<div>
+<%= link_to "github" %>
+</div>
+<div>
+<%= link_to "resume" %>
+</div>
+<div>
+<%= @profile.user.profile_picture %>
+</div>
+<div>
+<%= @profile.user.full_name %>
+</div>
+<div>
+<%= button_to "Contact" %>
+</div>

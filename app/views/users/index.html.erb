@@ -7,7 +7,7 @@
   <div>
   <%= user.full_name %>
   </div>
-  <%= link_to "View Profiles", user_path(user) %>
+  <%= link_to "View Profiles", user_profile_path(user, user.profile) %>
   <hr>
 <% end %>
 
