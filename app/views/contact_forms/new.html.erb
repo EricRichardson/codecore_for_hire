@@ -1,14 +1,6 @@
-<h1>Contact </h1>
+<h1>Contact <%= @user.first_name %></h1>
 
 <%= form_for @user do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name, :required => true %>
-  </div>
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email, :required => true %>
-  </div>
   <div>
     <%= f.label :message %>
     <%= f.text_field :message, :required => true %>
