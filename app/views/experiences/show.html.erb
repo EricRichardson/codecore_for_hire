@@ -1,0 +1,4 @@
+<span class="job_timeline"><%= @experience.start %> - <%= @experience.end %></span><h2><%= @experience.company %></h2>
+<p class="job_title"><%= @experience.title %></p>
+<p><%= @experience.description %></p>
+<%= link_to "Edit Experience", edit_experience_path(@experience) %> | <%= link_to "Delete Experience", experience_path(@experience), method: :delete, data: {confirm: "Are you sure you want to permanently delete this?"} %>
