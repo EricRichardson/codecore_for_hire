@@ -1,0 +1,12 @@
+<h1>All Skills</h1>
+<%= link_to "Add new skill", new_skill_path %>
+
+<% @skills.each do |skill|  %>
+  <div>
+    <h2><%= skill.name %></h2>
+    <p><%= skill.rating %></p>
+    <%= link_to "Edit", edit_skill_path(skill) %>
+    <%= link_to "Delete", skills_path, method: :delete, data: {confirm: "Are  you sure?"} %>
+    <hr>
+  </div>
+<% end %>
