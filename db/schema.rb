@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20160709014522) do
+=======
 ActiveRecord::Schema.define(version: 20160709020036) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +91,8 @@ ActiveRecord::Schema.define(version: 20160709020036) do
     t.string   "profile_picture"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.string   "reset_token"
+    t.datetime "sent_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
