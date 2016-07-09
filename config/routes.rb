@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :educations, only: [:create, :edit, :update, :destroy]
 
       resources :skills
+      resources :contact_forms, only: [:new, :create]
     end
   end
 
