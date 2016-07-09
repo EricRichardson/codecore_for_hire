@@ -2,7 +2,7 @@
 
 <% @users.each do |user| %>
   <div>
-    <%= user.profile_picture %>
+    <%= image_tag user.image.url(:medium) %>
   </div>
   <div>
     <%= user.full_name %>
