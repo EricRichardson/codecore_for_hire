@@ -9,7 +9,7 @@ gem 'kaminari'
 gem 'carrierwave'
 gem "mini_magick"
 
-# Add social media icon 
+# Add social media icon
 gem "font-awesome-rails"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
