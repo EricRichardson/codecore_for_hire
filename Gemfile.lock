@@ -37,6 +37,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
+    awesome_print (1.7.0)
+    bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
@@ -52,9 +54,18 @@ GEM
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.7.0)
+    factory_girl (4.7.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.7.0)
+      factory_girl (~> 4.7.0)
+      railties (>= 3.0.0)
+    ffi (1.9.10)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    hirb (0.7.3)
     i18n (0.7.0)
+    interactive_editor (0.0.10)
+      spoon (>= 0.0.1)
     jbuilder (2.5.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -118,6 +129,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    spoon (0.0.4)
+      ffi
     spring (1.7.2)
     sprockets (3.6.3)
       concurrent-ruby (~> 1.0)
@@ -146,8 +159,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
+  bcrypt (~> 3.1.7)
   byebug
   coffee-rails (~> 4.1.0)
+  factory_girl_rails
+  hirb
+  interactive_editor
   jbuilder (~> 2.0)
   jquery-rails
   pg (~> 0.15)
