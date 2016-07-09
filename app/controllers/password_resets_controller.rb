@@ -8,7 +8,7 @@ class PasswordResetsController < ApplicationController
     if user
       token = SecureRandom.urlsafe_base64
       user.reset_token = token
-      url = edit_password_reset_url(user) + "/?token=#{token}"
+      url = 'test' # edit_password_reset_url(user) + "/?token=#{token}"
       PasswordResetsMailer.send_reset(user, url).deliver_now
       redirect_to root_path, notice: "Reset email sent"
     else
