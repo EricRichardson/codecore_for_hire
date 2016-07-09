@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootswatch-rails'
+gem 'simple_form'
+gem 'quiet_assets'
 # Use kaminari to paginate pages
 gem 'kaminari'
 
