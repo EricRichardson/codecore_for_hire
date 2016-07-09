@@ -5,13 +5,17 @@ class ContactFormsController < ApplicationController
   end
 
   def create
-    @user = Contact_form.new(params[:user])
-    @user.request = request
+    @user = User.find params[:id]
+
     if @user.deliver
-      flash.now[:notice] = "Your message was sent! They will be in contact with you soon!"
+      flash[:notice] = "Your message was sent! They will be in contact with you soon!"
+      redirect_to user_path(@user)
     else
-      flash.now[:error] = "Cannot send message."
-      render "/users/new"
+      flash[:error] = "Cannot send message."
+      redirect_to user_path(@user)
     end
   end
+
+
+
 end

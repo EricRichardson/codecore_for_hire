@@ -1,8 +1,6 @@
-<h1>Contact </h1>
+<h1>Contact <%= @user.first_name %></h1>
 
 <%= simple_form_for @user do |f| %>
   <%= f.input :name, :required => true %>
-  <%= f.input :email, :required => true %>
-  <%= f.input :message, :required => true %>
   <%= f.button :submit, class: "btn-primary" %>
 <% end %>
