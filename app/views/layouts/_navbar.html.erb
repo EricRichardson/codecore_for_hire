@@ -33,12 +33,16 @@
           <li><%= link_to "Sign Up", new_user_path %></li>
         <% end %>
       </ul>
-      <form class="navbar-form navbar-left" role="search">
+      <!-- <form class="navbar-form navbar-left" role="search" action="/search" method="post">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="Search" name="search">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+      </form> -->
+      <%= form_tag("/search", method: "get", enforce_utf8: false) do %>
+        <%= text_field_tag(:query) %>
+        <%= submit_tag "Search", name: nil %>
+      <% end %>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
       </ul>
