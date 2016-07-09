@@ -5,8 +5,9 @@
     <%= user.profile_picture %>
   </div>
   <div>
-  <%= user.full_name %>
+    <%= user.full_name %>
   </div>
+
   <%= link_to "View Profiles", user_profile_path(user, user.profile) %>
   <hr>
 <% end %>

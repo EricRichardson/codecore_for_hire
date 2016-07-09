@@ -72,7 +72,9 @@ GEM
     factory_girl_rails (4.7.0)
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
-    ffi (1.9.13)
+    ffi (1.9.10)
+    font-awesome-rails (4.6.3.0)
+      railties (>= 3.2, < 5.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hirb (0.7.3)
@@ -190,6 +192,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.1.0)
   factory_girl_rails
+  font-awesome-rails
   hirb
   interactive_editor
   jbuilder (~> 2.0)

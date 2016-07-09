@@ -1,34 +1,33 @@
 <h1>Profile Page</h1>
 <div>
-<%= link_to "Add Educations", user_profile_educations_path(@profile.user, @profile)%>
+  <%= link_to "Add Educations", user_profile_educations_path(@profile.user, @profile)%>
 </div>
+
 <div>
-<%= link_to "Add Experiences", user_profile_experiences_path(@profile.user, @profile) %>
+  <%= link_to "Add Experiences", user_profile_experiences_path(@profile.user, @profile) %>
 </div>
+
 <div>
-<%= link_to "Add Projects", user_profile_projects_path(@profile.user, @profile) %>
+  <%= link_to "Add Projects", user_profile_projects_path(@profile.user, @profile) %>
 </div>
+
 <div>
-<%= link_to "Add Skills", user_profile_projects_path(@profile.user, @profile) %>
+  <%= link_to "Add Skills", user_profile_projects_path(@profile.user, @profile) %>
 </div>
+
 <div>
-<%= link_to "linkedin" %>
+  <%= link_to fa_icon("linkedin") %>
+  <%= link_to fa_icon("twitter") %>
+  <%= link_to fa_icon("github") %>
+  <%= link_to fa_icon("download") %>
 </div>
+
+<div id="prorfile-picture">
+  <%= @profile.user.profile_picture %>
+</div>
+
 <div>
-<%= link_to "twitter" %>
+  <%= @profile.user.full_name %>
 </div>
-<div>
-<%= link_to "github" %>
-</div>
-<div>
-<%= link_to "resume" %>
-</div>
-<div>
-<%= @profile.user.profile_picture %>
-</div>
-<div>
-<%= @profile.user.full_name %>
-</div>
-<div>
-<%= button_to "Contact" %>
-</div>
+
+<%= button_to "Contact", :class => "contact-btn" %>
