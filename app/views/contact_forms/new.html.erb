@@ -1,17 +1,8 @@
 <h1>Contact </h1>
 
-<%= form_for @user do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name, :required => true %>
-  </div>
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email, :required => true %>
-  </div>
-  <div>
-    <%= f.label :message %>
-    <%= f.text_field :message, :required => true %>
-  </div>
-  <%= f.submit %>
+<%= simple_form_for @user do |f| %>
+  <%= f.input :name, :required => true %>
+  <%= f.input :email, :required => true %>
+  <%= f.input :message, :required => true %>
+  <%= f.button :submit, class: "btn-primary" %>
 <% end %>
