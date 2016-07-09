@@ -1,0 +1,12 @@
+<h1>User Search Results</h1>
+
+<% @users.each do |user| %>
+  <div>
+    <%= image_tag user.image.url(:medium) %>
+  </div>
+  <div>
+  <%= user.full_name %>
+  </div>
+  <%= link_to "View Profiles", user_path(user) %>
+  <hr>
+<% end %>

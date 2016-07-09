@@ -5,13 +5,16 @@ Rails.application.routes.draw do
       resources :experiences, only: [:create, :edit, :update, :destroy]
       resources :projects, only: [:create, :edit, :update, :destroy]
       resources :educations, only: [:create, :edit, :update, :destroy]
-      resources :password_resets, only: [:new, :create, :edit, :update]
+
       resources :skills
+      resources :contact_forms, only: [:new, :create]
     end
   end
+
+  resources :search, param: :search
 
   resources :sessions, only: [:create, :new, :destroy] do
     delete :destroy, on: :collection
   end
-
+resources :password_resets, only: [:new, :create, :edit, :update]
 end

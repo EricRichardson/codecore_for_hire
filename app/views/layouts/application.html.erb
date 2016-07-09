@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CodecodeForHire</title>
+  <title>Codecode4Hire</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -15,6 +15,7 @@
       <div class="alert alert-dismissible alert-danger"><%= flash[:alert] %></div>
     <% end %>
     <%= yield %>
+    <%= render "sessions/form"%>
   </div>
 </body>
 </html>

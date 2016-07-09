@@ -1,32 +1,13 @@
-<h1>Edit Account Info</h1>
-<%= form_for @user do |f|%>
-  <div>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  </div>
-  <div>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </div>
-  <div>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-  </div>
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div>
-    <%= f.label :for_hire %>
-    <%= f.check_box :for_hire %>
-  </div>
-  <div>
-    <%= f.label :profile_picture %>
-    <%= f.text_field :profile_picture %>
-  </div>
-  <%= f.submit "Update" %>
-<% end %>
+<div class = 'well bs-component'>
+  <legend>Edit Account Info</legend>
+  <%= simple_form_for @user do |f|%>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :email %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
+      <%= f.input :for_hire %>
+      <%= f.input :image %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

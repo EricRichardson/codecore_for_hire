@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160709020036) do
+ActiveRecord::Schema.define(version: 20160709200804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160709020036) do
     t.string   "github"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "resume"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
@@ -84,11 +85,11 @@ ActiveRecord::Schema.define(version: 20160709020036) do
     t.boolean  "for_hire"
     t.boolean  "activated",       default: false
     t.boolean  "admin",           default: false
-    t.string   "profile_picture"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "reset_token"
     t.datetime "sent_at"
+    t.string   "image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -9,8 +9,9 @@ class User < ActiveRecord::Base
                     uniqueness: true,
                     format: EMAIL_REGEX
 
+  mount_uploader :image, ImageUploader
 
-  def full_name 
+  def full_name
     "#{first_name} #{last_name}"
   end
 end
