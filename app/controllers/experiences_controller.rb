@@ -1,4 +1,5 @@
 class ExperiencesController < ApplicationController
+<<<<<<< Updated upstream
 before_action :find_experience, only: [:show, :edit, :update, :destroy]
 before_action :experience_params, only: [:create, :update]
 
