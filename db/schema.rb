@@ -89,9 +89,7 @@ ActiveRecord::Schema.define(version: 20160709200804) do
     t.datetime "updated_at",                      null: false
     t.string   "reset_token"
     t.datetime "sent_at"
-    t.string   "profile_picture"
     t.string   "image"
-    t.string   "resume"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
