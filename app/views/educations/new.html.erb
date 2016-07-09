@@ -2,7 +2,7 @@
 
 <h4><%= @education.errors.full_messages.join(". ")  %></h4>
 
-<%= simple_form_for @education do |f| %>
+<%= simple_form_for [@user, @profile, @education] do |f| %>
   <%= f.input :school %>
   <%= f.input :major %>
   <%= f.input :description %>
