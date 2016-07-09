@@ -6,6 +6,8 @@ gem 'simple_form'
 gem 'quiet_assets'
 # Use kaminari to paginate pages
 gem 'kaminari'
+gem 'carrierwave'
+gem "mini_magick"
 
 # Add social media icon 
 gem "font-awesome-rails"
