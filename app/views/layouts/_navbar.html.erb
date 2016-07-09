@@ -1,9 +1,46 @@
-<%= link_to "Available Students", users_path(hire?: true) %> |
-<%= link_to "All Students", users_path  %> |
-<% if user_signed_in? %>
-  Hello, <%= link_to "#{current_user.first_name}", edit_user_path(current_user) %> |
-  <%= link_to "Sign Out", session_path(current_user), method: :delete %>
-<% else %>
-  <%= link_to "Sign In", new_session_path %> |
-  <%= link_to "Sign Up", new_user_path %>
-<% end %>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">CodeCore4Hire</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+        <li class="active"><%= link_to "Available Students", users_path %><span class="sr-only">(current)</span></li>
+        <li><%= link_to "All Students", users_path %></li>
+        <% if user_signed_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hello, <%=current_user.first_name%><span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><%= link_to "Account Info", edit_user_path(current_user)%></li>
+              <li><a href="#">Another action</a></li>
+              <li><%= link_to "Sign Out", session_path(current_user), method: :delete %></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Sign In", new_session_path %></li>
+          <li><%= link_to "Sign Up", new_user_path %></li>
+        <% end %>
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

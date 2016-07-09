@@ -48,8 +48,5 @@ before_action :experience_params, only: [:create, :update]
   def experience_params
     params.require(:experience).permit(:company, :title, :description, :start, :end)
   end
-=======
-
->>>>>>> Stashed changes
 
 end
