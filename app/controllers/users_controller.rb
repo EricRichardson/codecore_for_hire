@@ -19,6 +19,11 @@ class UsersController < ApplicationController
   def show
   end
 
+  def index
+    @page = params[:page].to_i
+    @users = User.order(created_at: :desc).page(@page).per(10)
+  end
+
   def edit
   end
 
