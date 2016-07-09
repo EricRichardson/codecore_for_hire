@@ -8,6 +8,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new profile_params
     @profile.user = User.find params[:user_id]
+    @profile.user.profile = @profile
     if @profile.save
       redirect_to user_profile_path(@profile.user, @profile), notice: "Updated Project"
     else

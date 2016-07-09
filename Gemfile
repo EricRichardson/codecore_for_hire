@@ -7,6 +7,9 @@ gem 'quiet_assets'
 # Use kaminari to paginate pages
 gem 'kaminari'
 
+# Add social media icon 
+gem "font-awesome-rails"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
