@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
+  root 'users#new'
   resources :users do
+    resources :profiles, only: [:new, :create, :update, :destroy] do
+      resources :experiences , only: [:create, :edit, :update, :destroy]
+      resources :educations
+      resources :password_resets, only: [:new, :create, :edit, :update]
+    end
   end
-  resources :profiles do
-    resources :projects
+
+  resources :sessions, only: [:create, :new, :destroy] do
+    delete :destroy, on: :collection
   end
+
+
 end

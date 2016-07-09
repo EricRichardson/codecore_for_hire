@@ -1,0 +1,13 @@
+<h1>UPCOMING PROJECTS</h1>
+
+<% @educations.each do |education| %>
+  <h3><%= education.school %> (<%= education.start %> - <%= education.end %>)</h3>
+  <h4><%= education.major %></h4>
+  <p><%= education.description %></p>
+  <%= link_to "Edit", edit_education_path(education) %>
+  |
+  <%= link_to "Delete", education_path(education), method: :delete, data: {confirm: "Are you sure?"} %>
+  <hr>
+<% end %>
+
+<%= link_to "Add Education", new_education_path %>

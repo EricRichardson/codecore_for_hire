@@ -1,0 +1,9 @@
+<h1>Experience</h1>
+
+<% @experiences.each do |experience| %>
+  <div>
+    <span class="job_timeline"><%= experience.start %> - <%= experience.end %></span><h2><h2><%= link_to experience.company, experience_path(experience) %></h2>
+    <p class="job_title"><%= experience.title %></p>
+    <p><%= experience.description %></p>
+  </div>
+<% end %>
