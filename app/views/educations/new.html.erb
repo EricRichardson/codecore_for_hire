@@ -1,0 +1,30 @@
+<h1>Add Education to Profile</h1>
+
+<h4><%= @education.errors.full_messages.join(". ")  %></h4>
+
+<%= form_for @education do |f| %>
+  <div>
+    <%= f.label :school %>
+    <%= f.text_field :school %>
+  </div>
+  <br>
+  <div>
+    <%= f.label "Field of Study" %>
+    <%= f.text_field :major %>
+  </div>
+  <div>
+    <%= f.label "Description" %>
+    <%= f.text_area :description %>
+  </div>
+  <br>
+  <div>
+    <%= f.label "Start Date" %>
+    <%= f.date_field :start %>
+  </div>
+  <div>
+    <%= f.label "Graduation Date" %>
+    <%= f.date_field :end %>
+  </div>
+  <br>
+  <%= f.submit %>
+<% end %>
