@@ -23,7 +23,8 @@
 </div>
 
 <div id="prorfile-picture">
-  <%= @profile.user.profile_picture %>
+  <%= image_tag @profile.user.image.url(:medium) %>
+  <%#= image_tag @question.image.url(:medium) %>
 </div>
 
 <div>
