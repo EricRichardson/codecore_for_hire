@@ -1,5 +1,10 @@
 <% @experience.errors.full_messages.join(", ") %>
-<%= form_for @experience do |f| %>
+<%= simple_form_for @experience do |f| %>
+  <%= f.input :company %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :start %>
+
   <div>
     <%= f.label :company %>
     <%= f.text_field :company %>
