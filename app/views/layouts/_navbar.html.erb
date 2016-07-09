@@ -1,5 +1,5 @@
-<%= link_to "Available Students", users_path %> |
-<%= link_to "All Students"  %> |
+<%= link_to "Available Students", users_path(hire?: true) %> |
+<%= link_to "All Students", users_path  %> |
 <% if user_signed_in? %>
   Hello, <%= link_to "#{current_user.first_name}", edit_user_path(current_user) %> |
   <%= link_to "Sign Out", session_path(current_user), method: :delete %>

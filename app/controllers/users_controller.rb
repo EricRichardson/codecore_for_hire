@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :create, :reset]
+  before_action :authenticate_user!, except: [:new, :create, :index]
   before_action :find_user, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -20,8 +20,13 @@ class UsersController < ApplicationController
   end
 
   def index
-    @page = params[:page].to_i
-    @users = User.order(created_at: :desc).page(@page).per(10)
+    if params[:hire?]
+      @page = params[:page].to_i
+      @users = User.where(for_hire: true).order(created_at: :desc).page(@page).per(10)
+    else
+      @page = params[:page].to_i
+      @users = User.order(created_at: :desc).page(@page).per(10)
+    end
   end
 
   def edit
