@@ -11,5 +11,9 @@
     <%= f.label :github %>
     <%= f.text_field :github %>
   </div>
+  <div>
+    <%= f.file_field :resume %>
+    <%= f.hidden_field :resume %>
+  </div>
   <%= f.submit "Add Project"%>
 <% end %>
