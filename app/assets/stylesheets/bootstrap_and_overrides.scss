@@ -34,10 +34,10 @@ img { width: 130px; }
   border-color: #7c0404;
 }
 
-@media (max-width: 500px) {
-.container > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-header, .container-fluid > .navbar-collapse {
-  margin-right: -15px;
-  margin-left: -15px;
+@media (max-width: 767px) {
+.container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
