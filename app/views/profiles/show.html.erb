@@ -43,9 +43,12 @@
 </div>
 
 
-<div id="prorfile-picture">
-  <%= image_tag @profile.user.image.url(:medium) %>
-  <%#= image_tag @question.image.url(:medium) %>
+<div id="profile-picture">
+  <% if @profile.user.image.file.nil? %>
+    <%= image_tag("default_profile_picture.png") %>
+  <% else %>
+    <%= image_tag(@profile.user.image.url(:medium)) %>
+  <% end %>
 </div>
 
 <div>
