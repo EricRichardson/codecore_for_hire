@@ -1,0 +1,13 @@
+<div class="jumbotron jumbo-home">
+  <h1>WELCOME</h1>
+  <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <a class="btn btn-primary btn-lg home-buttons">View Students Available For Hire</a>
+  <a class="btn btn-primary btn-lg home-buttons">Sign Up</a>
+  <a class="btn btn-primary btn-lg home-buttons">Learn More About CodeCore</a>
+  <div class="jumbo-home-search">
+    <%= form_tag("/search", method: "get", enforce_utf8: false) do %>
+      <%= text_field_tag :query, nil, placeholder: "Search for students...", class: "jumbo-search-bar" %>
+      <%= submit_tag "Search", name: nil, class: "jumbo-search-button" %>
+    <% end %>
+  </div>
+</div>

@@ -3,18 +3,21 @@ class SkillsController < ApplicationController
 
   def new
     @skill = Skill.new
+    @user = User.find params[:user_id]
+    @profile = Profile.find params[:profile_id]
   end
 
 
   def create
     @skill = Skill.new skill_params
-
+    user = User.find params[:user_id]
+    profile = user.profile
+    @skill.profile = profile
     if @skill.save
-      render "/skills/index"
-      flash[:notice] = "New Skill Created!"
+      redirect_to user_profile_path(user, profile),notice:  "New Skill Created!"
     else
       flash[:alert] = "Error. Skill not created!"
-      render "/skills/new"
+      redirect_to user_profile_path(user, profile)
     end
   end
 
@@ -26,22 +29,27 @@ class SkillsController < ApplicationController
 
   def edit
     @skill = Skill.find params[:id]
+    @profile = Profile.find params[:profile_id]
+    @user = User.find params[:user_id]
   end
 
 
   def update
+    user = User.find params[:user_id]
+    @profile = Profile.find params[:profile_id]
     @skill = Skill.find params[:id]
     if @skill.update skill_params
-      redirect_to skill_path(@skill)
+      redirect_to user_profile_path(user, @profile)
     else
       render :edit
     end
   end
 
   def destroy
+    @profile = Profile.find params[:profile_id]
     @skill = Skill.find params[:id]
     @skill.destroy
-    redirect_to skills_path
+    redirect_to user_profile_path(@profile.user,@profile)
   end
 
 

@@ -1,19 +1,7 @@
-<%= form_for @profile do |f| %>
-  <div>
-    <%= f.label :twitter %>
-    <%= f.text_field :twitter %>
-  </div>
-  <div>
-    <%= f.label :linkedin %>
-    <%= f.text_field :linkedin %>
-  </div>
-  <div>
-    <%= f.label :github %>
-    <%= f.text_field :github %>
-  </div>
-  <div>
-    <%= f.file_field :resume %>
-    <%= f.hidden_field :resume %>
-  </div>
-  <%= f.submit "Add Project"%>
+<%= simple_form_for @profile do |f| %>
+  <%= f.input :twitter %>
+  <%= f.input :linkedin %>
+  <%= f.input :github %>
+  <%= f.input :resume, multiple: true %>
+  <%= f.submit "Add Project" %>
 <% end %>
