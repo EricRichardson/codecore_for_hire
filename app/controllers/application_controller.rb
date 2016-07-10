@@ -17,7 +17,17 @@ class ApplicationController < ActionController::Base
   end
 
   def default_image
-      @image = 'default-cat.jpg'
+    @image = 'default-cat.jpg'
   end
   helper_method :default_image
+
+  def find_user
+    @user = User.find params[:user_id]
+  end
+  helper_method :find_user
+
+  def find_profile
+    @profile = Profile.find params[:profile_id]
+  end
+  helper_method :find_profile
 end

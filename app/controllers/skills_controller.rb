@@ -1,23 +1,21 @@
 class SkillsController < ApplicationController
-
-
+  before_action :authenticate_user!, except: [:index]
+  before_action :find_user, except: [:index]
+  before_action :find_profile, except: [:index]
+  before_action :find_skill, only: [:edit, :update, :destroy]
   def new
     @skill = Skill.new
-    @user = User.find params[:user_id]
-    @profile = Profile.find params[:profile_id]
   end
 
 
   def create
     @skill = Skill.new skill_params
-    user = User.find params[:user_id]
-    profile = user.profile
-    @skill.profile = profile
+    @skill.profile = @profile
     if @skill.save
-      redirect_to user_profile_path(user, profile),notice:  "New Skill Created!"
+      redirect_to user_profile_path(@user, @profile),notice:  "New Skill Created!"
     else
       flash[:alert] = "Error. Skill not created!"
-      redirect_to user_profile_path(user, profile)
+      redirect_to user_profile_path(@user, @profile)
     end
   end
 
@@ -28,28 +26,23 @@ class SkillsController < ApplicationController
   end
 
   def edit
-    @skill = Skill.find params[:id]
-    @profile = Profile.find params[:profile_id]
-    @user = User.find params[:user_id]
+    redirect_to root_path, alert: "access defined" unless can? :edit, @profile
   end
 
 
   def update
-    user = User.find params[:user_id]
-    @profile = Profile.find params[:profile_id]
-    @skill = Skill.find params[:id]
+    redirect_to root_path, alert: "access defined" unless can? :update, @profile
     if @skill.update skill_params
-      redirect_to user_profile_path(user, @profile)
+      redirect_to user_profile_path(@user, @profile)
     else
       render :edit
     end
   end
 
   def destroy
-    @profile = Profile.find params[:profile_id]
-    @skill = Skill.find params[:id]
+    redirect_to root_path, alert: "access defined" unless can? :destroy, @profile
     @skill.destroy
-    redirect_to user_profile_path(@profile.user,@profile)
+    redirect_to user_profile_path(@user,@profile)
   end
 
 
@@ -59,7 +52,8 @@ class SkillsController < ApplicationController
     skill_params = params.require(:skill).permit(:name, :rating)
   end
 
-
-
+  def find_skill
+    @skill = Skill.find params[:id]
+  end
 
 end

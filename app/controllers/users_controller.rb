@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create, :index]
-  before_action :find_user, only: [:show, :edit, :update, :destroy]
+  before_action :current_user, only: [:edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -25,9 +25,11 @@ class UsersController < ApplicationController
 
   def index
     if params[:hire?]
+      @header = "Students for Hire"
       @page = params[:page].to_i
       @users = User.where(for_hire: true).order(created_at: :desc).page(@page).per(10)
     else
+      @header = "All Students"
       @page = params[:page].to_i
       @users = User.order(created_at: :desc).page(@page).per(10)
     end
@@ -35,7 +37,6 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find params[:id]
-    @user.image.cache!
   end
 
   def update
@@ -53,7 +54,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :for_hire, :image)
   end
 
-  def find_user
-    @user = User.find(session[:user_id])
-  end
+  # def find_user
+  #   @user = User.find(session[:user_id])
+  # end
 end
