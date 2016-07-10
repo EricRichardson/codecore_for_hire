@@ -5,13 +5,18 @@ class EducationsController < ApplicationController
   end
 
   def new
+    @user = User.find params[:user_id]
+    @profile = Profile.find params[:profile_id]
     @education = Education.new
   end
 
   def create
     @education = Education.new education_params
+    user = User.find params[:user_id]
+    profile = user.profile
+    @education.profile = profile
     if @education.save
-      redirect_to educations_path, notice: "New education added!"
+      redirect_to user_profile_path(user, profile), notice: "New education added!"
     else
       flash[:alert] = "Education could not be added"
       render :new

@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  attr_accessor :image_cache
+
   has_secure_password
   has_one :profile
 
@@ -14,4 +16,9 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def default_image
+      @image = '/images/default-cat.jpg'
+  end
+
 end

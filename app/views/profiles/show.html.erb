@@ -1,18 +1,18 @@
 <h1>Profile Page</h1>
 <div>
-  <%= link_to "Add Educations", user_profile_educations_path(@profile.user, @profile)%>
+  <%= link_to "Add Educations", new_user_profile_education_path(@profile.user, @profile)%>
 </div>
 
 <div>
-  <%= link_to "Add Experiences", user_profile_experiences_path(@profile.user, @profile) %>
+  <%= link_to "Add Experiences", new_user_profile_experience_path(@profile.user, @profile) %>
 </div>
 
 <div>
-  <%= link_to "Add Projects", user_profile_projects_path(@profile.user, @profile) %>
+  <%= link_to "Add Projects", new_user_profile_project_path(@profile.user, @profile) %>
 </div>
 
 <div>
-  <%= link_to "Add Skills", user_profile_projects_path(@profile.user, @profile) %>
+  <%= link_to "Add Skills", new_user_profile_skill_path(@profile.user, @profile) %>
 </div>
 
 <div id="prorfile-picture">
@@ -33,15 +33,46 @@
 
 <div>
   <label>Skills</label>
+  <% @profile.skills.each do |skill| %>
+    <div>
+      <%= skill.name %>
+      <%= skill.rating %>
+    </div>
+    <hr>
+  <% end %>
 </div>
 <div>
   <label>Educations</label>
+  <% @profile.educations.each do |education| %>
+    <div>
+      <%= education.school %><br>
+      <%= education.description %>
+      <hr>
+    </div>
+  <% end %>
 </div>
+
 <div>
   <label>Experiences</label>
+  <% @profile.experiences.each do |experience|  %>
+  <div>
+      <%= experience.company %>
+      <%= experience.title %>
+      <%= experience.description %>
+      <hr>
+  </div>
+  <% end %>
 </div>
+
 <div>
   <label>Projects</label>
+  <% @profile.projects.each do |project| %>
+    <div>
+      <%= project.link %>
+      <%= project.github %>
+      <hr>
+    </div>
+  <% end %>
 </div>
 
 <%= button_to "Contact", :class => "contact-btn" %>
