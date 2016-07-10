@@ -36,6 +36,13 @@
   <div id="project-form"></div>
 </div>
 
+<div>
+  <% if can? :manage, @profile %>
+    <%= link_to "Edit Description", new_user_profile_description_path(@profile.user, @profile)%>
+  <% end %>
+</div>
+
+
 <div id="prorfile-picture">
   <%= image_tag @profile.user.image.url(:medium) %>
   <%#= image_tag @question.image.url(:medium) %>
@@ -43,6 +50,10 @@
 
 <div>
   <%= @profile.user.full_name %>
+</div>
+
+<div>
+  <%= @profile.description.body %>
 </div>
 
 <div>
@@ -61,7 +72,6 @@
     <%= link_to "Experiences", user_profile_experiences_path(@profile.user, @profile), remote: :true%>
     |
     <%= link_to "Projects", user_profile_projects_path(@profile.user, @profile), remote: :true%>
-    |
   </div>
 
   <div id="list">
