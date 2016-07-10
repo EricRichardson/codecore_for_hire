@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
-<<<<<<< HEAD
+
 gem "fog-aws"
-=======
+
 
 gem 'bootstrap-typeahead-rails'
 gem 'handlebars_assets'
->>>>>>> master
+
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootswatch-rails'
 gem 'simple_form'

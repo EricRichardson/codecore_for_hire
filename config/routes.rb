@@ -7,11 +7,6 @@ Rails.application.routes.draw do
       resources :projects
       resources :educations
       resources :skills
-<<<<<<< HEAD
-=======
-      
-      resources :contact_forms, only: [:new, :create]
->>>>>>> adb0194fbd39392a78f28d39681b02280f995436
     end
   end
   resources :contact_forms, only: [:new, :create]
