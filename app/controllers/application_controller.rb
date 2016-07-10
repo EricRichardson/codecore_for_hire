@@ -23,9 +23,9 @@ class ApplicationController < ActionController::Base
   helper_method :default_image
 
   def find_user
-    @user = User.find params[:id]
+    @user = User.find params[:user_id]
   end
-  
+
   helper_method :find_user
 
   def find_profile

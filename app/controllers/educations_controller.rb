@@ -7,13 +7,17 @@ class EducationsController < ApplicationController
   def index
     @educations = Education.all
     respond_to do |format|
-      format.html { render "educations/index"}
-      format.js   { render "educations/display"}
+      format.html { render "educations/index" }
+      format.js   { render "educations/display" }
     end
   end
 
   def new
     @education = Education.new
+    respond_to do |format|
+      format.html { render }
+      format.js   { render "educations/create_success" }
+    end
   end
 
   def create
@@ -29,6 +33,10 @@ class EducationsController < ApplicationController
 
   def edit
     redirect_to root_path, alert: "access defined" unless can? :edit, @profile
+    respond_to do |format|
+      format.html { render }
+      format.js   { render :update_success }
+    end
   end
 
   def update

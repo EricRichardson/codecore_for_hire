@@ -5,6 +5,10 @@ class SkillsController < ApplicationController
   before_action :find_skill, only: [:edit, :update, :destroy]
   def new
     @skill = Skill.new
+    respond_to do |format|
+      format.html { render "skills/new" }
+      format.js   { render "skills/create_success" }
+    end
   end
 
 
@@ -31,6 +35,10 @@ class SkillsController < ApplicationController
 
   def edit
     redirect_to root_path, alert: "access defined" unless can? :edit, @profile
+    respond_to do |format|
+      format.html { render }
+      format.js   { render :update_success }
+    end
   end
 
 

@@ -8,7 +8,8 @@
       <%= education.start %>
       <%= education.end %>
       <% if can? :manage, profile %>
-      <%= link_to "Edit", edit_user_profile_education_path(profile.user, profile, education) %>
+      <%= link_to "Edit", edit_user_profile_education_path(profile.user, profile, education), remote: :true %>
+      <div id="education-edit-form"></div>
       <%= link_to "Delete", user_profile_education_path(profile.user, profile, education), method: :delete, data:  {confirm: "Are you sure?" } %>
       <% end %>
       <hr>

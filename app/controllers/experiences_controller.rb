@@ -6,6 +6,10 @@ class ExperiencesController < ApplicationController
 
   def new
     @experience = Experience.new
+    respond_to do |format|
+      format.html { render }
+      format.js   { render "experiences/create_success" }
+    end
   end
 
   def create
@@ -31,6 +35,10 @@ class ExperiencesController < ApplicationController
 
   def edit
     redirect_to root_path, alert: "access defined" unless can? :edit, @profile
+    respond_to do |format|
+      format.html { render }
+      format.js   { render :update_success }
+    end
   end
 
   def update
