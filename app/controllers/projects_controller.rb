@@ -23,7 +23,11 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    redirect_to root_path, alert: "access denied" unless can? :edit, @profile
+    redirect_to root_path, alert: "access defined" unless can? :edit, @profile
+    respond_to do |format|
+      format.html { render }
+      format.js   { render :update_success }
+    end
   end
 
   def index

@@ -33,6 +33,10 @@ class EducationsController < ApplicationController
 
   def edit
     redirect_to root_path, alert: "access defined" unless can? :edit, @profile
+    respond_to do |format|
+      format.html { render }
+      format.js   { render :update_success }
+    end
   end
 
   def update
