@@ -19,6 +19,6 @@ class User < ActiveRecord::Base
 
   def default_image
       @image = '/images/default-cat.jpg'
-  end
+  end 
 
 end

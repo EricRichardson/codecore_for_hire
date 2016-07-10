@@ -1,25 +1,34 @@
 <h1>Profile Page</h1>
+
+<!-- <div> -->
+  <%# if can? :manage @profile %>
+    <%#= link_to "Activate", activation_path(@profile.user, @profile) %>
+  <%# else %>
+    <%#= link_to "Deactivate", activation_path(@profile.user, @profile) %>
+  <%# end %>
+<!-- </div> -->
+
 <div>
   <% if can? :manage, @profile %>
-  <%= link_to "Add Educations", new_user_profile_education_path(@profile.user, @profile)%>
+    <%= link_to "Add Educations", new_user_profile_education_path(@profile.user, @profile)%>
   <% end %>
 </div>
 
 <div>
   <% if can? :manage, @profile %>
-  <%= link_to "Add Experiences", new_user_profile_experience_path(@profile.user, @profile) %>
+    <%= link_to "Add Experiences", new_user_profile_experience_path(@profile.user, @profile) %>
   <% end %>
 </div>
 
 <div>
   <% if can? :manage, @profile %>
-  <%= link_to "Add Projects", new_user_profile_project_path(@profile.user, @profile) %>
+    <%= link_to "Add Projects", new_user_profile_project_path(@profile.user, @profile) %>
   <% end %>
 </div>
 
 <div>
   <% if can? :manage, @profile %>
-  <%= link_to "Add Skills", new_user_profile_skill_path(@profile.user, @profile) %>
+    <%= link_to "Add Skills", new_user_profile_skill_path(@profile.user, @profile) %>
   <% end %>
 </div>
 

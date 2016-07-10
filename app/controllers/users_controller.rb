@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create, :index]
   before_action :current_user, only: [:edit, :update, :destroy]
+  before_action :find_user, only: [:edit, :update, :index]
 
   def new
     @user = User.new
@@ -24,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    @admin = User.where(User.arel_table[:admin].eq(true))
     if params[:hire?]
       @header = "Students for Hire"
       @page = params[:page].to_i
@@ -36,11 +38,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find params[:id]
   end
 
   def update
-    @user = User.find params[:id]
     if @user.update user_params
       redirect_to root_path
     else
@@ -50,11 +50,12 @@ class UsersController < ApplicationController
 
 
   private
+
+  def find_user
+    @user = User.find(session[:user_id])
+  end
+
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :for_hire, :image)
   end
-
-  # def find_user
-  #   @user = User.find(session[:user_id])
-  # end
 end

@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   root 'home#index'
+
+  patch '/activate_user/:id' => 'activations#update', as: :user_activation
+
+  delete '/activate_user/:id' => 'activations#delete'
+
   resources :users do
-   resources :profiles do
+    resources :profiles do
       resources :experiences, only: [:new, :create, :edit, :update, :destroy]
       resources :projects, only: [:new, :create, :edit, :update, :destroy]
       resources :educations, only: [:new, :create, :edit, :update, :destroy]
@@ -16,5 +21,6 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :new, :destroy] do
     delete :destroy, on: :collection
   end
-resources :password_resets, only: [:new, :create, :edit, :update]
-end
+
+  resources :password_resets, only: [:new, :create, :edit, :update]
+  end
