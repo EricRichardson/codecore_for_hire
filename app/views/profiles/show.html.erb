@@ -39,9 +39,9 @@
 </div>
 
 <div>
-  <%= link_to fa_icon("linkedin"), "http://#{@profile.linkedin}" %>
-  <%= link_to fa_icon("twitter"), "http://#{@profile.twitter}" %>
-  <%= link_to fa_icon("github"), "http://#{@profile.github}" %>
+  <%= link_to fa_icon("linkedin"), "#{@profile.linkedin}" %>
+  <%= link_to fa_icon("twitter"), "#{@profile.twitter}" %>
+  <%= link_to fa_icon("github"), "#{@profile.github}" %>
   <%= link_to fa_icon("download"), @profile.resume.url %>
 </div>
 
