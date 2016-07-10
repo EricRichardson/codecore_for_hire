@@ -1,4 +1,13 @@
 <h1>Profile Page</h1>
+
+<!-- <div> -->
+  <%# if can? :manage @profile %>
+    <%#= link_to "Activate", activation_path(@profile.user, @profile) %>
+  <%# else %>
+    <%#= link_to "Deactivate", activation_path(@profile.user, @profile) %>
+  <%# end %>
+<!-- </div> -->
+
 <div>
   <% if can? :manage, @profile %>
     <%= link_to "Add Skills", new_user_profile_skill_path(@profile.user, @profile), remote: :true %>
@@ -26,6 +35,7 @@
   <% end %>
   <div id="project-form"></div>
 </div>
+
 <div>
   <% if can? :manage, @profile %>
     <%= link_to "Edit Description", new_user_profile_description_path(@profile.user, @profile)%>
