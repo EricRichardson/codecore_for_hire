@@ -1,9 +1,9 @@
 <div class = 'well bs-component'>
 <legend>Contact <%= @user.full_name %></legend>
 
-<%= simple_form_for contact_forms_path(email: @user.email) do |f|%>
-  <%= f.input :from, :required => true %>
-  <%= f.input :message, :required => true %>
+<%= form_tag contact_forms_path(email: @user.email) do %>
+  <%= text_field_tag :from, nil, :required => true %>
+  <%= text_area_tag :message, nil, :required => true %>
   <%= submit_tag :submit, class: "btn-primary" %>
 <% end %>
 </div>
