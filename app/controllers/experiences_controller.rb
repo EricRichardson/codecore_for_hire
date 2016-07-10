@@ -1,21 +1,18 @@
 class ExperiencesController < ApplicationController
-
-before_action :find_experience, only: [:show, :edit, :update, :destroy]
-before_action :experience_params, only: [:create, :update]
+  before_action :authenticate_user!, except: [:index]
+  before_action :find_user, except: [:index]
+  before_action :find_profile, except: [:index]
+  before_action :find_experience, only: [:edit, :update, :destroy]
 
   def new
-    @user = User.find params[:user_id]
-    @profile = Profile.find params[:profile_id]
     @experience = Experience.new
   end
 
   def create
     @experience = Experience.new experience_params
-    user = User.find params[:user_id]
-    profile = user.profile
-    @experience.profile = profile
+    @experience.profile = @profile
     if @experience.save
-      redirect_to user_profile_path(user, profile), notice: "Experience Added!"
+      redirect_to user_profile_path(@user, @profile), notice: "Experience Added!"
     else
       render :edit
     end
@@ -29,26 +26,22 @@ before_action :experience_params, only: [:create, :update]
   end
 
   def edit
-    @experience = Experience.find params[:id]
-    @profile = Profile.find params[:profile_id]
-    @user = User.find params[:user_id]
+    redirect_to root_path, alert: "access defined" unless can? :edit, @profile
   end
 
   def update
-    user = User.find params[:user_id]
-    @profile = Profile.find params[:profile_id]
+    redirect_to root_path, alert: "access defined" unless can? :update, @profile
     if @experience.update experience_params
-      redirect_to user_profile_path(user, @profile), notice: "Experience Updated!"
+      redirect_to user_profile_path(@user, @profile), notice: "Experience Updated!"
     else
       render :edit
     end
   end
 
   def destroy
-    user = User.find params[:user_id]
-    @profile = Profile.find params[:profile_id]
+    redirect_to root_path, alert: "access defined" unless can? :destroy, @profile
     @experience.destroy
-    redirect_to user_profile_path(user, @profile), notice: "Experience Deleted!"
+    redirect_to user_profile_path(@user, @profile), notice: "Experience Deleted!"
   end
 
   private
