@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create, :index]
-  before_action :find_user, only: [:show, :edit, :update, :destroy]
+  before_action :current_user, only: [:edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :for_hire, :image)
   end
 
-  def find_user
-    @user = User.find(session[:user_id])
-  end
+  # def find_user
+  #   @user = User.find(session[:user_id])
+  # end
 end
