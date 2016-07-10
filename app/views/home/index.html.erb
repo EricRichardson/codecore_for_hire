@@ -1,9 +1,9 @@
 <div class="jumbotron jumbo-home">
   <h1>Welcome To CodeCore For Hire</h1>
   <p class="Intro">Looking for skilled coders? Search through our student profiles.<br>CodeCore student? Create an account or sign in!</p>
-  <a class="btn btn-primary btn-lg home-buttons hvr-bob"><div class= >View Students Available For Hire</div></a>
-  <a class="btn btn-primary btn-lg home-buttons hvr-bob">Sign Up</a>
-  <a class="btn btn-primary btn-lg home-buttons hvr-bob">Learn More About CodeCore</a>
+  <a class="btn btn-primary btn-lg home-buttons hvr-bob"><div class= "wordwrap">View Students Available For Hire</div></a>
+  <a class="btn btn-primary btn-lg home-buttons hvr-bob"><div class= "wordwrap">Sign Up</div></a>
+  <a class="btn btn-primary btn-lg home-buttons hvr-bob"><div class= "wordwrap">Learn More About CodeCore</div></a>
   <div class="jumbo-home-search">
     <%= form_tag("/search", method: "get", enforce_utf8: false) do %>
       <%= text_field_tag(:query, nil, placeholder: "Search for students...", class: "jumbo-search-bar")%>
