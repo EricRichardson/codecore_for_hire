@@ -25,9 +25,11 @@ class UsersController < ApplicationController
 
   def index
     if params[:hire?]
+      @header = "Students for Hire"
       @page = params[:page].to_i
       @users = User.where(for_hire: true).order(created_at: :desc).page(@page).per(10)
     else
+      @header = "All Students"
       @page = params[:page].to_i
       @users = User.order(created_at: :desc).page(@page).per(10)
     end
