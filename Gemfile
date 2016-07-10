@@ -11,6 +11,11 @@ gem 'kaminari'
 gem 'carrierwave'
 gem "mini_magick"
 
+# Gem installed for delayed_job
+gem 'daemons', '~> 1.0', '>= 1.0.10'
+
+gem 'delayed_job_active_record'
+
 # Add social media icon
 gem "font-awesome-rails"
 gem "cancancan"

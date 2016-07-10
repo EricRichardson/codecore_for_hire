@@ -64,7 +64,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :for_hire, :image)
   end
 
-  def find_user
-    @user = User.find(session[:user_id])
-  end
+  # def find_user
+  #   @user = User.find(session[:user_id])
+  # end
 end
