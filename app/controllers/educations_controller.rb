@@ -25,12 +25,16 @@ class EducationsController < ApplicationController
 
   def edit
     @education = Education.find(params[:id])
+    @profile = Profile.find params[:profile_id]
+    @user = User.find params[:user_id]
   end
 
   def update
+    user = User.find params[:user_id]
+    @profile = Profile.find params[:profile_id]
     @education = Education.find(params[:id])
     if @education.update education_params
-      redirect_to educations_path, notice: "New education updated!"
+      redirect_to user_profile_path(user, @profile), notice: "New education updated!"
     else
       flash[:alert] = "Education not updated"
       render :edit
@@ -38,9 +42,11 @@ class EducationsController < ApplicationController
   end
 
   def destroy
+    user = User.find params[:user_id]
+    @profile = Profile.find params[:profile_id]
     education = Education.find(params[:id])
     education.destroy
-    redirect_to educations_path, notice: "Education deleted"
+    redirect_to user_profile_path(user, @profile), notice: "Education deleted"
   end
 
   private

@@ -29,19 +29,26 @@ before_action :experience_params, only: [:create, :update]
   end
 
   def edit
+    @experience = Experience.find params[:id]
+    @profile = Profile.find params[:profile_id]
+    @user = User.find params[:user_id]
   end
 
   def update
+    user = User.find params[:user_id]
+    @profile = Profile.find params[:profile_id]
     if @experience.update experience_params
-      redirect_to experience_path(@experience), notice: "Experience Updated!"
+      redirect_to user_profile_path(user, @profile), notice: "Experience Updated!"
     else
       render :edit
     end
   end
 
   def destroy
+    user = User.find params[:user_id]
+    @profile = Profile.find params[:profile_id]
     @experience.destroy
-    redirect_to experiences_path, notice: "Experience Deleted!"
+    redirect_to user_profile_path(user, @profile), notice: "Experience Deleted!"
   end
 
   private
