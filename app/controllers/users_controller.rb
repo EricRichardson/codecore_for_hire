@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    redirect_to user_profile_path(@user, @user.profile)
   end
 
   def index
