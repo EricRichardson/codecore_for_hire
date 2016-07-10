@@ -29,22 +29,27 @@ class SkillsController < ApplicationController
 
   def edit
     @skill = Skill.find params[:id]
+    @profile = Profile.find params[:profile_id]
+    @user = User.find params[:user_id]
   end
 
 
   def update
+    user = User.find params[:user_id]
+    @profile = Profile.find params[:profile_id]
     @skill = Skill.find params[:id]
     if @skill.update skill_params
-      redirect_to skill_path(@skill)
+      redirect_to user_profile_path(user, @profile)
     else
       render :edit
     end
   end
 
   def destroy
+    @profile = Profile.find params[:profile_id]
     @skill = Skill.find params[:id]
     @skill.destroy
-    redirect_to skills_path
+    redirect_to user_profile_path(@profile.user,@profile)
   end
 
 
