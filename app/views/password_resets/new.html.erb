@@ -1,8 +1,8 @@
 <div class = 'well bs-component'>
   <legend>Forgot Your Password?</legend>
 
-  <%= simple_form_for password_resets_path do |f| %>
-    <%= f.input :email %>
+  <%= form_tag password_resets_path do %>
+    <%= text_field_tag :email %>
     <%= submit_tag %>
   <% end %>
 </div>
