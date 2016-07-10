@@ -1,8 +1,46 @@
 @import "bootstrap-sprockets";
-@import "bootswatch/yeti/variables";
+@import "bootswatch/paper/variables";
 @import "bootstrap";
-@import "bootswatch/yeti/bootswatch";
-body { padding-top: 50px; }
+@import "bootswatch/paper/bootswatch";
+body { padding-top: 100px; }
+img { width: 130px; }
+
+.navbar-inverse {
+  background-color: #CB0D0F;
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+  background-color: #A00000;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: white;
+}
+
+.navbar-inverse .form-control[type=text], .navbar-inverse .form-control[type=password] {
+  box-shadow: inset 0 -1px 0 white;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+  background-color: #A00000;
+}
+
+.container-fluid {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+  border-color: #7c0404;
+}
+
+@media (max-width: 767px) {
+.container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
 
 .home-buttons {
   width: 100%;
