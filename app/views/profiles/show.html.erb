@@ -40,73 +40,21 @@
 </div>
 
 <div>
-  <label>Skills</label>
-  <% @profile.skills.each do |skill| %>
-    <div>
-      <%= skill.name %>
-      <%= skill.rating %>
-      <% if can? :manage, @profile %>
-      <%= link_to "Edit", edit_user_profile_skill_path(@profile.user, @profile, skill) %>
-      <%= link_to "Delete", user_profile_skill_path(@profile.user, @profile, skill), method: :delete, data:  {confirm: "Are you sure?" } %>
-      <% end %>
-    </div>
-  <% end %>
-    <hr>
-</div>
-
-<div>
-  <label>Educations</label>
-  <% @profile.educations.each do |education| %>
-    <div>
-      <%= education.school %><br>
-      <%= education.description %>
-      <%= education.link %>
-      <%= education.major %>
-      <%= education.start %>
-      <%= education.end %>
-      <% if can? :manage, @profile %>
-      <%= link_to "Edit", edit_user_profile_education_path(@profile.user, @profile, education) %>
-      <%= link_to "Delete", user_profile_education_path(@profile.user, @profile, education), method: :delete, data:  {confirm: "Are you sure?" } %>
-      <% end %>
-      <hr>
-    <% end %>
-
-    </div>
-</div>
-
-<div>
-  <label>Experiences</label>
-  <% @profile.experiences.each do |experience|  %>
   <div>
-      <%= experience.company %>
-      <%= experience.title %>
-      <%= experience.description %>
-      <%= experience.start %>
-      <%= experience.end %>
-      <% if can? :manage, @profile %>
-      <%= link_to "Edit", edit_user_profile_experience_path(@profile.user, @profile, experience) %>
-      <%= link_to "Delete", user_profile_experience_path(@profile.user, @profile, experience), method: :delete, data:  {confirm: "Are you sure?" } %>
-      <% end %>
-      <hr>
+    <%= link_to "Skills", user_profile_skills_path(@profile.user, @profile), remote: :true%>
+    |
+    <%= link_to "Educations", user_profile_educations_path(@profile.user, @profile), remote: :true%>
+    |
+    <%= link_to "Experiences", user_profile_experiences_path(@profile.user, @profile), remote: :true%>
+    |
+    <%= link_to "Projects", user_profile_projects_path(@profile.user, @profile), remote: :true%>
+    |
   </div>
-  <% end %>
+
+  <div id="list">
+    <%= render "skills/list", {skills: @profile.skills, profile: @profile}%>
+  </div>
 </div>
 
-<div>
-  <label>Projects</label>
-  <% @profile.projects.each do |project| %>
-    <div>
-      <%= project.title %>
-      <%= project.link %>
-      <%= project.github %>
-      <%= project.description %>
-      <% if can? :manage, @profile %>
-      <%= link_to "Edit", edit_user_profile_project_path(@profile.user, @profile, project) %>
-      <%= link_to "Delete", user_profile_project_path(@profile.user, @profile, project), method: :delete, data:  {confirm: "Are you sure?" } %>
-      <% end %>
-      <hr>
-    </div>
-  <% end %>
-</div>
 
 <%= button_to "Contact", :class => "contact-btn" %>
