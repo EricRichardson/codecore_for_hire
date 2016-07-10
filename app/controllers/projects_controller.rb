@@ -1,15 +1,19 @@
 class ProjectsController < ApplicationController
 
   def new
+    @user = User.find params[:user_id]
     @project = Project.new
+    @profile = Profile.find params[:profile_id]
   end
 
   def create
     @project          = Project.new project_params
+    user = User.find params[:user_id]
+    # @profile = user.profile
     profile           = Profile.find params[:profile_id]
     @project.profile  = profile
     if @project.save
-      redirect_to profile_path(@profile), notice: "Project added!"
+      redirect_to user_profile_path(user, profile), notice: "Project added!"
     else
       render "/profile/show"
     end

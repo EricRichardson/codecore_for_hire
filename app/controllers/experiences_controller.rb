@@ -4,13 +4,18 @@ before_action :find_experience, only: [:show, :edit, :update, :destroy]
 before_action :experience_params, only: [:create, :update]
 
   def new
+    @user = User.find params[:user_id]
+    @profile = Profile.find params[:profile_id]
     @experience = Experience.new
   end
 
   def create
-    @experience = Experience.new(experience_params)
+    @experience = Experience.new experience_params
+    user = User.find params[:user_id]
+    profile = user.profile
+    @experience.profile = profile
     if @experience.save
-      redirect_to experiences_path, notice: "Experience Added!"
+      redirect_to user_profile_path(user, profile), notice: "Experience Added!"
     else
       render :edit
     end
