@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160710185843) do
+ActiveRecord::Schema.define(version: 20160710210956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 20160710185843) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "descriptions", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "descriptions", ["profile_id"], name: "index_descriptions_on_profile_id", using: :btree
 
   create_table "educations", force: :cascade do |t|
     t.integer  "profile_id"
@@ -101,6 +110,7 @@ ActiveRecord::Schema.define(version: 20160710185843) do
     t.boolean  "for_hire"
     t.boolean  "activated",       default: false
     t.boolean  "admin",           default: false
+    t.string   "profile_picture"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "reset_token"
@@ -110,6 +120,7 @@ ActiveRecord::Schema.define(version: 20160710185843) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "descriptions", "profiles"
   add_foreign_key "educations", "profiles"
   add_foreign_key "experiences", "profiles"
   add_foreign_key "profiles", "users"

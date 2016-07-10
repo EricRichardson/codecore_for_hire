@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :projects
       resources :educations
       resources :skills
+      resources :descriptions
     end
   end
   resources :contact_forms, only: [:new, :create]
