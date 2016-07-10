@@ -1,0 +1,5 @@
+function validateImage(event) {
+  if (parseInt($(event.target).css("width")) <= 1){
+    $(event.target).attr('src', '<%= image_path("default_profile_picture.jpg") %>');
+  }
+}
