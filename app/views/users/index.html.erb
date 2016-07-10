@@ -2,7 +2,7 @@
 
 <% @users.each do |user| %>
   <div>
-    <%= image_tag user.image.url(:medium) %>
+    <%= image_tag(user.image.url(:medium), onerror: "validateImage(event)") %>
   </div>
   <div>
     <%= user.full_name %>
