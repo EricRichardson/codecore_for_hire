@@ -21,12 +21,15 @@ class ProjectsController < ApplicationController
 
   def edit
     @profile = Profile.find params[:profile_id]
+    redirect_to root_path, alert: "access defined" unless can? :edit, @profile
     @user = User.find params[:user_id]
     @project = Project.find params[:id]
   end
 
 
   def update
+    @profile = Profile.find params[:profile_id]
+    redirect_to root_path, alert: "access defined" unless can? :update, @profile
     @project         = Project.find params[:id]
     @profile          = @project.profile
     user = User.find params[:user_id]
@@ -40,6 +43,7 @@ class ProjectsController < ApplicationController
   def destroy
     user = User.find params[:user_id]
     @profile = Profile.find params[:profile_id]
+    redirect_to root_path, alert: "access defined" unless can? :destroy, @profile
     @project = Project.find params[:id]
     @project.destroy
     redirect_to user_profile_path(user, @profile), notice: "Answer deleted"
