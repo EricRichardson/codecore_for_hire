@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'users#index'
+  root 'home#index'
   resources :users do
    resources :profiles do
       resources :experiences, only: [:new, :create, :edit, :update, :destroy]

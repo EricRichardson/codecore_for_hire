@@ -3,3 +3,24 @@
 @import "bootstrap";
 @import "bootswatch/yeti/bootswatch";
 body { padding-top: 50px; }
+
+.home-buttons {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.jumbo-home {
+  text-align: center;
+}
+.jumbo-home-search {
+  margin-top: 20px;
+}
+.jumbo-search-bar {
+  width: 50%;
+  height: 40px;
+  font-size: 25px;
+}
+.jumbo-search-button {
+  height: 40px;
+  font-size: 25px;
+}
