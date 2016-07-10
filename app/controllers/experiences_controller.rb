@@ -29,14 +29,16 @@ before_action :experience_params, only: [:create, :update]
   end
 
   def edit
-    @experience = Experience.find params[:id]
     @profile = Profile.find params[:profile_id]
+    redirect_to root_path, alert: "access defined" unless can? :edit, @profile
+    @experience = Experience.find params[:id]
     @user = User.find params[:user_id]
   end
 
   def update
     user = User.find params[:user_id]
     @profile = Profile.find params[:profile_id]
+    redirect_to root_path, alert: "access defined" unless can? :update, @profile
     if @experience.update experience_params
       redirect_to user_profile_path(user, @profile), notice: "Experience Updated!"
     else
@@ -47,6 +49,7 @@ before_action :experience_params, only: [:create, :update]
   def destroy
     user = User.find params[:user_id]
     @profile = Profile.find params[:profile_id]
+    redirect_to root_path, alert: "access defined" unless can? :destroy, @profile
     @experience.destroy
     redirect_to user_profile_path(user, @profile), notice: "Experience Deleted!"
   end
