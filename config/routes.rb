@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  root 'users#index'
+  root 'home#index'
   resources :users do
    resources :profiles do
-      resources :experiences, only: [:create, :edit, :update, :destroy]
-      resources :projects, only: [:create, :edit, :update, :destroy]
-      resources :educations, only: [:create, :edit, :update, :destroy]
+      resources :experiences, only: [:new, :create, :edit, :update, :destroy]
+      resources :projects, only: [:new, :create, :edit, :update, :destroy]
+      resources :educations, only: [:new, :create, :edit, :update, :destroy]
 
       resources :skills
       resources :contact_forms, only: [:new, :create]

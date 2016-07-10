@@ -1,25 +1,18 @@
 <h1>Profile Page</h1>
 <div>
-  <%= link_to "Add Educations", user_profile_educations_path(@profile.user, @profile)%>
+  <%= link_to "Add Educations", new_user_profile_education_path(@profile.user, @profile)%>
 </div>
 
 <div>
-  <%= link_to "Add Experiences", user_profile_experiences_path(@profile.user, @profile) %>
+  <%= link_to "Add Experiences", new_user_profile_experience_path(@profile.user, @profile) %>
 </div>
 
 <div>
-  <%= link_to "Add Projects", user_profile_projects_path(@profile.user, @profile) %>
+  <%= link_to "Add Projects", new_user_profile_project_path(@profile.user, @profile) %>
 </div>
 
 <div>
-  <%= link_to "Add Skills", user_profile_projects_path(@profile.user, @profile) %>
-</div>
-
-<div>
-  <%= link_to fa_icon("linkedin") %>
-  <%= link_to fa_icon("twitter") %>
-  <%= link_to fa_icon("github") %>
-  <%= link_to fa_icon("download") %>
+  <%= link_to "Add Skills", new_user_profile_skill_path(@profile.user, @profile) %>
 </div>
 
 <div id="prorfile-picture">
@@ -29,6 +22,74 @@
 
 <div>
   <%= @profile.user.full_name %>
+</div>
+
+<div>
+  <%= link_to fa_icon("linkedin") %>
+  <%= link_to fa_icon("twitter") %>
+  <%= link_to fa_icon("github") %>
+  <%= link_to fa_icon("download"), @profile.resume.url %>
+</div>
+
+<div>
+  <label>Skills</label>
+  <% @profile.skills.each do |skill| %>
+    <div>
+      <%= skill.name %>
+      <%= skill.rating %>
+      <%= link_to "Edit", edit_user_profile_skill_path(@profile.user, @profile, skill) %>
+      <%= link_to "Delete", user_profile_skill_path(@profile.user, @profile, skill), method: :delete, data:  {confirm: "Are you sure?" } %>
+    </div>
+    <hr>
+  <% end %>
+</div>
+<div>
+  <label>Educations</label>
+  <% @profile.educations.each do |education| %>
+    <div>
+      <%= education.school %><br>
+      <%= education.description %>
+      <%= education.link %>
+      <%= education.major %>
+      <%= education.start %>
+      <%= education.end %>
+      <%= link_to "Edit", edit_user_profile_education_path(@profile.user, @profile, education) %>
+      <%= link_to "Delete", user_profile_education_path(@profile.user, @profile, education), method: :delete, data:  {confirm: "Are you sure?" } %>
+      <hr>
+    </div>
+  <% end %>
+</div>
+
+<div>
+  <label>Experiences</label>
+  <% @profile.experiences.each do |experience|  %>
+  <div>
+      <%= experience.company %>
+      <%= experience.title %>
+      <%= experience.description %>
+      <%= experience.start %>
+      <%= experience.end %>
+
+      <%= link_to "Edit", edit_user_profile_experience_path(@profile.user, @profile, experience) %>
+      <%= link_to "Delete", user_profile_experience_path(@profile.user, @profile, experience), method: :delete, data:  {confirm: "Are you sure?" } %>
+      <hr>
+  </div>
+  <% end %>
+</div>
+
+<div>
+  <label>Projects</label>
+  <% @profile.projects.each do |project| %>
+    <div>
+      <%= project.title %>
+      <%= project.link %>
+      <%= project.github %>
+      <%= project.description %>
+      <%= link_to "Edit", edit_user_profile_project_path(@profile.user, @profile, project) %>
+      <%= link_to "Delete", user_profile_project_path(@profile.user, @profile, project), method: :delete, data:  {confirm: "Are you sure?" } %>
+      <hr>
+    </div>
+  <% end %>
 </div>
 
 <%= button_to "Contact", :class => "contact-btn" %>
