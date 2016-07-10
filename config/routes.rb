@@ -5,16 +5,17 @@ Rails.application.routes.draw do
 
   delete '/activate_user/:id' => 'activations#delete'
 
-  resources :users do
-    resources :profiles do
-      resources :experiences, only: [:new, :create, :edit, :update, :destroy]
-      resources :projects, only: [:new, :create, :edit, :update, :destroy]
-      resources :educations, only: [:new, :create, :edit, :update, :destroy]
+  get "users/autocomplete" => "users#autocomplete"
 
+  resources :users do
+   resources :profiles do
+      resources :experiences
+      resources :projects
+      resources :educations
       resources :skills
-      resources :contact_forms, only: [:new, :create]
     end
   end
+  resources :contact_forms, only: [:new, :create]
 
   resources :search, param: :search
 
@@ -22,5 +23,8 @@ Rails.application.routes.draw do
     delete :destroy, on: :collection
   end
 
+
   resources :password_resets, only: [:new, :create, :edit, :update]
-  end
+
+  resources :contact_forms, only: [:new, :create]
+end

@@ -1,11 +1,15 @@
 class ExperiencesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :find_user, except: [:index]
-  before_action :find_profile, except: [:index]
+  before_action :find_profile
   before_action :find_experience, only: [:edit, :update, :destroy]
 
   def new
     @experience = Experience.new
+    respond_to do |format|
+      format.html { render }
+      format.js   { render "experiences/create_success" }
+    end
   end
 
   def create
@@ -20,6 +24,10 @@ class ExperiencesController < ApplicationController
 
   def index
     @experiences = Experience.all
+    respond_to do |format|
+      format.html { render "experiences/index"}
+      format.js   { render "experiences/display"}
+    end
   end
 
   def show

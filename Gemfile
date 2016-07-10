@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
+gem "fog-aws"
+
+
+gem 'bootstrap-typeahead-rails'
+gem 'handlebars_assets'
+
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootswatch-rails'
 gem 'simple_form'
@@ -8,6 +14,11 @@ gem 'quiet_assets'
 gem 'kaminari'
 gem 'carrierwave'
 gem "mini_magick"
+
+# Gem installed for delayed_job
+gem 'daemons', '~> 1.0', '>= 1.0.10'
+
+gem 'delayed_job_active_record'
 
 # Add social media icon
 gem "font-awesome-rails"

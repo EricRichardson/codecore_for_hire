@@ -1,0 +1,12 @@
+skills
+<% profile.skills.each do |skill| %>
+  <div>
+    <%= skill.name %>
+    <%= skill.rating %>
+    <% if can? :manage, profile %>
+    <%= link_to "Edit", edit_user_profile_skill_path(profile.user, profile, skill) %>
+    <%= link_to "Delete", user_profile_skill_path(profile.user, profile, skill), method: :delete, data:  {confirm: "Are you sure?" } %>
+    <% end %>
+  </div>
+<% end %>
+<hr>

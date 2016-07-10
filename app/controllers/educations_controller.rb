@@ -1,15 +1,23 @@
 class EducationsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :find_user, except: [:index]
-  before_action :find_profile, except: [:index]
+  before_action :find_profile
   before_action :find_education, only: [:edit, :update, :destroy]
 
   def index
     @educations = Education.all
+    respond_to do |format|
+      format.html { render "educations/index" }
+      format.js   { render "educations/display" }
+    end
   end
 
   def new
     @education = Education.new
+    respond_to do |format|
+      format.html { render }
+      format.js   { render "educations/create_success" }
+    end
   end
 
   def create

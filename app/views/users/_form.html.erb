@@ -1,0 +1,66 @@
+<div id="signUpModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content login-1">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Sign Up</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_tag users_path do %>
+        <form class="form-horizontal">
+          <fieldset>
+              <div class="form-group">
+                <%= label_tag :first_name,"First Name:", class: "col-lg-2 control-label" %>
+                <div class="col-lg-10">
+                  <%= email_field_tag :first_name, nil, {:class => "form-control", :style => "padding: 15px"} %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= label_tag :last_name,"Last Name:", class: "col-lg-2 control-label" %>
+                <div class="col-lg-10">
+                  <%= email_field_tag :last_name, nil, {:class => "form-control", :style => "padding: 15px"} %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= label_tag :email,"Email:", class: "col-lg-2 control-label" %>
+                <div class="col-lg-10">
+                  <%= email_field_tag :email, nil, {:class => "form-control", :style => "padding: 15px"} %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= label_tag :password, "Password:", class: "col-lg-2 control-label" %>
+                <div class="col-lg-10">
+                  <%= password_field_tag :password, nil, class: "form-control" %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= label_tag :password_confirmation, "Password Confirmation", class: "col-lg-2 control-label" %>
+                <div class="col-lg-10">
+                  <%= password_field_tag :password_confirmation, nil, class: "form-control" %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= label_tag :for_hire, "For Hire", class: "col-lg-2 control-label" %>
+                <div class="col-lg-10">
+                  <%= check_box_tag :for_hire, nil, class: "form-control" %>
+                </div>
+              </div>
+              <div class="form-group file optional user_image">
+                <label class="file optional control-label" for="user_image">Image</label>
+                <input class="file optional" type="file" name="user[image]" id="user_image">
+              </div>
+              <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                  <%= submit_tag "Sign Up", class: "btn btn-primary" %>
+                </div>
+              </div>
+          </fieldset>
+        </form>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

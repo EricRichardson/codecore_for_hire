@@ -1,10 +1,14 @@
 class SkillsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :find_user, except: [:index]
-  before_action :find_profile, except: [:index]
+  before_action :find_profile
   before_action :find_skill, only: [:edit, :update, :destroy]
   def new
     @skill = Skill.new
+    respond_to do |format|
+      format.html { render "skills/new" }
+      format.js   { render "skills/create_success" }
+    end
   end
 
 
@@ -23,6 +27,10 @@ class SkillsController < ApplicationController
 
   def index
     @skills = Skill.all
+    respond_to do |format|
+      format.html { render "skills/index"}
+      format.js   { render "skills/display"}
+    end
   end
 
   def edit
