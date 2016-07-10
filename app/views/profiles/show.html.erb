@@ -36,14 +36,32 @@
   <div id="project-form"></div>
 </div>
 
-<div id="prorfile-picture">
-  <%= image_tag @profile.user.image.url(:medium) %>
-  <%#= image_tag @question.image.url(:medium) %>
+
+<div id="profile-picture">
+  <% if @profile.user.image.file.nil? %>
+    <%= image_tag("default_profile_picture.png") %>
+  <% else %>
+    <%= image_tag(@profile.user.image.url(:medium)) %>
+  <% end %>
 </div>
 
 <div>
   <%= @profile.user.full_name %>
 </div>
+
+<div>
+  <% if can? :manage, @profile %>
+    Edit Description
+    <%= link_to fa_icon("pencil-square"), edit_user_profile_description_path(@profile.user, @profile, @profile.description), remote: :true%>
+  <% end %>
+</div>
+
+<div id="description-form">
+  <% if @profile.description %>
+    <%= @profile.description.body %>
+  <% end %>
+</div>
+
 
 <div>
   <%= link_to fa_icon("linkedin"), "#{@profile.linkedin}" %>
@@ -61,7 +79,6 @@
     <%= link_to "Experiences", user_profile_experiences_path(@profile.user, @profile), remote: :true%>
     |
     <%= link_to "Projects", user_profile_projects_path(@profile.user, @profile), remote: :true%>
-    |
   </div>
 
   <div id="list">

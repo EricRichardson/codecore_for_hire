@@ -10,9 +10,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     @profile = Profile.new
+    @description = Description.new body: "Enter your description here. Click the top right icon to edit"
+    @profile.description = @description
+    @description.profile = @profile
     @profile.user = @user
     @user.profile = @profile
-    if @user.save && @profile.save
+    if @user.save && @profile.save && @description.save
       session[:user_id] = @user.id
       redirect_to new_user_profile_path(@user), notice: "Logged In!"
     else
