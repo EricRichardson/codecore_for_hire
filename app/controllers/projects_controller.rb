@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    redirect_to root_path, alert: "access defined" unless can? :update, @profile
+    redirect_to root_path, alert: "access denied" unless can? :update, @profile
     @profile          = @project.profile
     if @project.update project_params
       redirect_to user_profile_path(@user, @profile), notice: "Project added!"
@@ -48,7 +48,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    redirect_to root_path, alert: "access defined" unless can? :destroy, @profile
+    redirect_to root_path, alert: "access denied" unless can? :destroy, @profile
     @project.destroy
     redirect_to user_profile_path(@user, @profile), notice: "Answer deleted"
   end
