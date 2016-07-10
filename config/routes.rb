@@ -7,9 +7,9 @@ Rails.application.routes.draw do
       resources :educations, only: [:new, :create, :edit, :update, :destroy]
 
       resources :skills
-      resources :contact_forms, only: [:new, :create]
     end
   end
+  resources :contact_forms, only: [:new, :create]
 
   resources :search, param: :search
 

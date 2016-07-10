@@ -1,6 +1,7 @@
 <h1>Contact <%= @user.first_name %></h1>
 
-<%= simple_form_for @user do |f| %>
-  <%= f.input :name, :required => true %>
-  <%= f.button :submit, class: "btn-primary" %>
+<%=  form_tag contact_forms_path(id: @user.id) do  %>
+  <%= text_field_tag :from, nil, :required => true %>
+  <%= text_area_tag :message, nil, :required => true  %>
+  <%= submit_tag :submit, class: "btn-primary" %>
 <% end %>

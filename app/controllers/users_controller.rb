@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find params[:id]
     redirect_to user_profile_path(@user, @user.profile)
   end
 
