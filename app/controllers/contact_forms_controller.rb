@@ -11,10 +11,10 @@ class ContactFormsController < ApplicationController
     if user
       ContactFormsMailer.send_contact(user, from, message).deliver_now
       flash[:notice] = "Your message was sent! They will be in contact with you soon!"
-      redirect_to user_path(user)
+      redirect_to user_profile_path(user, user.profile)
     else
       flash[:error] = "Cannot send message."
-      redirect_to user_path(user)
+      redirect_to user_profile_path(user, user.profile)
     end
   end
 
