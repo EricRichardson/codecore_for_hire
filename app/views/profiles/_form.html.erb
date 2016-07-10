@@ -1,4 +1,4 @@
-<%= simple_form_for @profile do |f| %>
+<%= simple_form_for @profile, :url => user_profile_path do |f| %>
   <%= f.input :twitter %>
   <%= f.input :linkedin %>
   <%= f.input :github %>

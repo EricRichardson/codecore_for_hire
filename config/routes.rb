@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
   root 'home#index'
+  get "users/autocomplete" => "users#autocomplete"
   resources :users do
    resources :profiles do
       resources :experiences
       resources :projects
       resources :educations
       resources :skills
-      
-      resources :contact_forms, only: [:new, :create]
     end
   end
+  resources :contact_forms, only: [:new, :create]
 
   resources :search, param: :search
 
