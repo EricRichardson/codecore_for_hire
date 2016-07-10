@@ -1,26 +1,9 @@
 <% @experience.errors.full_messages.join(", ") %>
-<%= form_for @experience do |f| %>
-  <div>
-    <%= f.label :company %>
-    <%= f.text_field :company %>
-  </div>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
-  <div>
-    <%= f.label :start %>
-    <%= f.select_month :start %>
-    <%= f.select_year :start %>
-  </div>
-  <div>
-    <%= f.label :end %>
-    <%= f.select_month :end %>
-    <%= f.select_year :end %>
-  </div>
+<%= simple_form_for [@user,@profile,@experience] do |f| %>
+  <%= f.input :company %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :start, as: :date, discard_day: true  %>
+  <%= f.input :end, as: :date, discard_day: true  %>
   <%= f.submit %>
 <% end %>

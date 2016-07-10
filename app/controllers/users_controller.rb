@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    redirect_to user_profile_path(@user, @user.profile)
   end
 
   def index
@@ -34,12 +35,15 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find params[:id]
+    @user.image.cache!
   end
 
   def update
     @user = User.find params[:id]
     if @user.update user_params
       redirect_to root_path
+    else
+      render :edit
     end
   end
 

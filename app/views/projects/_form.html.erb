@@ -1,19 +1,7 @@
-<%= form_for @project do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <%= f.label :link %>
-    <%= f.text_field :link %>
-  </div>
-  <div>
-    <%= f.label :github %>
-    <%= f.text_field :github %>
-  </div>
-  <div>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
-  <%= f.submit "Add Project"%>
+<%= simple_form_for [@user, @profile, @project] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :link %>
+  <%= f.input :github %>
+  <%= f.input :description %>
+  <%= f.button :submit, class: "btn-primary" %>
 <% end %>
