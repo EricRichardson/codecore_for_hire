@@ -5,8 +5,8 @@ class EducationsController < ApplicationController
   end
 
   def new
-    @user = User.find params[:user_id]
     @profile = Profile.find params[:profile_id]
+    @user = User.find params[:user_id]
     @education = Education.new
   end
 
@@ -24,14 +24,16 @@ class EducationsController < ApplicationController
   end
 
   def edit
-    @education = Education.find(params[:id])
     @profile = Profile.find params[:profile_id]
+    redirect_to root_path, alert: "access defined" unless can? :edit, @profile
+    @education = Education.find(params[:id])
     @user = User.find params[:user_id]
   end
 
   def update
-    user = User.find params[:user_id]
     @profile = Profile.find params[:profile_id]
+    redirect_to root_path, alert: "access defined" unless can? :update, @profile
+    user = User.find params[:user_id]
     @education = Education.find(params[:id])
     if @education.update education_params
       redirect_to user_profile_path(user, @profile), notice: "New education updated!"
@@ -44,6 +46,7 @@ class EducationsController < ApplicationController
   def destroy
     user = User.find params[:user_id]
     @profile = Profile.find params[:profile_id]
+    redirect_to root_path, alert: "access defined" unless can? :destroy, @profile
     education = Education.find(params[:id])
     education.destroy
     redirect_to user_profile_path(user, @profile), notice: "Education deleted"
