@@ -1,9 +1,12 @@
-
-<h1>Users Waiting Activation</h1>
+<h1>Users Awaiting Activation</h1>
 
 <% @users.each do |user| %>
   <div>
-    <%= image_tag(user.image.url(:medium), onerror: "validateImage(event)") %>
+    <% if user.image.file.nil? %>
+      <%= image_tag("default_profile_picture.png") %>
+    <% else %>
+      <%= image_tag(user.image.url(:medium)) %>
+    <% end %>
   </div>
   <div>
     <%= user.full_name %>

@@ -1,7 +1,7 @@
 class ActivationsController < AdministrativeController
 
   def index
-      @users = User.where(activated: false).order(created_at: :desc).page(@page).per(10)
+    @users = User.where(activated: false).order(created_at: :desc).page(@page).per(10)
   end
 
   def update
