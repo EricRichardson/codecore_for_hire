@@ -17,4 +17,5 @@ Rails.application.routes.draw do
     delete :destroy, on: :collection
   end
 resources :password_resets, only: [:new, :create, :edit, :update]
+resources :contact_forms, only: [:new, :create]
 end

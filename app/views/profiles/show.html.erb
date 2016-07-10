@@ -92,4 +92,4 @@
   <% end %>
 </div>
 
-<%= button_to "Contact", :class => "contact-btn" %>
+<%= link_to "Contact", new_contact_form_path(user_id: @profile.user.id), class: "btn btn-primary" %>
