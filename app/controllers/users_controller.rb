@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :create, :index]
-  before_action :current_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:new, :create, :index, :autocomplete]
+  before_action :find_user, only: [:show, :edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -49,6 +49,16 @@ class UsersController < ApplicationController
     end
   end
 
+#   def autocomplete
+#   users = User.all.map do |user|
+#     {
+#       name: user.first_name,
+#       email: user.email
+#     }
+#   end
+#
+#   render json: users
+# end
 
   private
   def user_params

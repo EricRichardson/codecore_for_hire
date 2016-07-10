@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :find_user, except: [:index]
-  before_action :find_profile, except: [:index]
+  before_action :find_profile
   before_action :find_project, only: [:edit, :update, :destroy]
 
   def new
@@ -22,6 +22,12 @@ class ProjectsController < ApplicationController
     redirect_to root_path, alert: "access defined" unless can? :edit, @profile
   end
 
+  def index
+    respond_to do |format|
+      format.html { render "projects/index"}
+      format.js   { render "projects/display"}
+    end
+  end
 
   def update
     redirect_to root_path, alert: "access defined" unless can? :update, @profile
