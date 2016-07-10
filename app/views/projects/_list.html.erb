@@ -7,7 +7,8 @@
       <%= project.github %>
       <%= project.description %>
       <% if can? :manage, profile %>
-      <%= link_to "Edit", edit_user_profile_project_path(profile.user, profile, project) %>
+      <%= link_to "Edit", edit_user_profile_project_path(profile.user, profile, project), remote: :true %>
+      <div id="project-edit-form"></div>
       <%= link_to "Delete", user_profile_project_path(profile.user, profile, project), method: :delete, data:  {confirm: "Are you sure?" } %>
       <% end %>
       <hr>
