@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap-typeahead-rails'
+gem 'handlebars_assets'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootswatch-rails'
 gem 'simple_form'

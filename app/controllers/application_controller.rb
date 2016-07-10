@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+  # For APIs, you may want to use :null_session instead
+  protect_from_forgery unless: -> { request.format.json? }
+
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
@@ -20,4 +21,5 @@ class ApplicationController < ActionController::Base
       @image = 'default-cat.jpg'
   end
   helper_method :default_image
+
 end

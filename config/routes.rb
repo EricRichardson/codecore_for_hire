@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
+  get "users/autocomplete" => "users#autocomplete"
   resources :users do
    resources :profiles do
       resources :experiences, only: [:new, :create, :edit, :update, :destroy]
