@@ -5,6 +5,10 @@ class SkillsController < ApplicationController
   before_action :find_skill, only: [:edit, :update, :destroy]
   def new
     @skill = Skill.new
+    respond_to do |format|
+      format.html { render "skills/new" }
+      format.js   { render "skills/create_success" }
+    end
   end
 
 

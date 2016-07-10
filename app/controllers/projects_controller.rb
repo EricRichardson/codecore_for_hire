@@ -6,6 +6,10 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    respond_to do |format|
+      format.html { render }
+      format.js   { render "projects/create_success" }
+    end
   end
 
   def create
