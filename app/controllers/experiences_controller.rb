@@ -6,6 +6,10 @@ class ExperiencesController < ApplicationController
 
   def new
     @experience = Experience.new
+    respond_to do |format|
+      format.html { render }
+      format.js   { render "experiences/create_success" }
+    end
   end
 
   def create
