@@ -2,18 +2,28 @@
 @import "bootswatch/paper/variables";
 @import "bootstrap";
 @import "bootswatch/paper/bootswatch";
+
 body { padding-top: 120px; }
 
 .container {
-  padding-left: 80px;
-  padding-right: 80px;
   padding-bottom: 80px;
 }
 
-img { width: 140px;
-      position: relative;
-      top: -4px;
-    };
+.special-button {
+  margin-top: 10px;
+}
+
+img {
+  width: 140px;
+  position: relative;
+  top: -4px;
+};
+
+//Search button
+#bs-example-navbar-collapse-2 > form > button {
+  margin: 9px 5px 5px 5px;
+  padding: 3px 5px 2px 5px;
+}
 
 //Sign-in button
 
@@ -28,9 +38,13 @@ input.btn-primary:hover, .btn-primary:active:hover, .btn-primary:focus, .btn-pri
 // Regular screens
 @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
 
+  #bs-example-navbar-collapse-2 > form {
+    margin: 0px 0px 0px 0px;
+  }
+
   .container {
-    padding-left: 70px;
-    padding-right: 70px;
+    padding-left: 150px;
+    padding-right: 150px;
   }
 
   body > div > div.well.bs-component {
@@ -39,7 +53,6 @@ input.btn-primary:hover, .btn-primary:active:hover, .btn-primary:focus, .btn-pri
     margin-left: auto;
     box-shadow: 2px 2px 10px #888888;
   }
-
 
   .flexbox {
     display: flex;
@@ -60,6 +73,48 @@ input.btn-primary:hover, .btn-primary:active:hover, .btn-primary:focus, .btn-pri
   body > div > ul {
     margin-top: 30px;
   }
+
+  .user-index {
+    margin-left: 0px;
+    margin-right:20px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    position: relative;
+    width: 178px;
+    height: 287px;
+    float: left;
+    justify-content: space-around;
+  }
+
+  .user-index img {
+    height: auto;
+    width: 80%;
+    margin: 5px;
+    margin-top: 10%;
+  }
+
+  .user_box {
+    text-align: center;
+  }
+
+  .profile-box {
+    text-align: center;
+  }
+
+  body > div > div.index-container > div {
+    background-color: white;
+  }
+
+  body > div > div.index-container > div:hover {
+    box-shadow: 2px 2px 10px #888888;
+  }
+
+
+  hr {
+    margin-top: 5px;
+    margin-bottom: 10px
+  }
+
 }
 
 .navbar-inverse {
@@ -115,7 +170,11 @@ input.btn-primary:hover, .btn-primary:active:hover, .btn-primary:focus, .btn-pri
     padding-left: 10px;
     padding-right: 10px;
   }
-
+  .container {
+    padding-left: 150px;
+    padding-right: 150px;
+    margin: 0px;
+  }
 
   .form-control {
     display: inline-block;
@@ -254,6 +313,7 @@ input.btn-primary:hover, .btn-primary:active:hover, .btn-primary:focus, .btn-pri
   backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .hvr-bob:hover, .hvr-bob:focus, .hvr-bob:active {
   -webkit-animation-name: hvr-bob-float, hvr-bob;
   animation-name: hvr-bob-float, hvr-bob;
@@ -353,15 +413,15 @@ i.fa {
   box-shadow: 2px 2px 10px #888888;
   margin-left: 25px;
   margin-top: 10px;
-
   width: 500px;
 }
 
 
-html{
+html {
   position: relative;
   min-height: 100%;
 }
+
 //Footer
 footer.foot {
   position: absolute;

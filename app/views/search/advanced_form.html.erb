@@ -1,17 +1,25 @@
-<h1>Advanced Search</h1>
-
+<h3>Advanced Search</h3>
+<div class = 'well bs-component'>
 <%= form_tag("/search/advanced", method: "post", enforce_utf8: false) do %>
-  <div class="form-group">
-    <%= label_tag(:name, "Student Name:", class: "control-label") %>
-    <%= text_field_tag :name, nil, class: "form-control", placeholder: "Enter the student's name here..." %>
-  </div>
-  <div class="form-group">
-    <%= label_tag(:skills, "Skills:", class: "control-label") %>
-    <%= text_field_tag :skills, nil, class: "form-control", placeholder: 'Enter desired skills here (Separate skills with comma, no space)...' %>
-  </div>
-  <div class="form-group">
-    <%= label_tag(:skills, "Education:", class: "control-label") %>
-    <%= text_field_tag :school, nil, class: "form-control", placeholder: 'Enter place of education here...' %>
-  </div>
-  <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+  <form class="form-horizontal">
+    <fieldset>
+      <div class="form-group">
+        <%= label_tag(:name, "Student Name:", class: "col-lg-5 control-label") %>
+          <%= text_field_tag :name, nil, class: "col-lg-10 form-control", placeholder: "Enter the student's name here..." %>
+      </div>
+
+        <div class="form-group">
+          <%= label_tag(:skills, "Skills:", class: "col-lg-5 control-label special-button") %>
+          <%= text_field_tag :skills, nil, class: "col-lg-10 form-control", placeholder: 'Enter desired skills here (Separate skills with comma, no space)...' %>
+      </div>
+      <div class="form-group">
+        <%= label_tag(:skills, "Education:", class: "col-lg-2 control-label special-button") %>
+          <%= text_field_tag :school, nil, class: "col-lg-10 form-control", placeholder: 'Enter place of education here...' %>
+      </div>
+      <div class="col-lg-1 special-button">
+        <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
+      </div>
+    </fieldset>
+  </form>
 <% end %>
+</div>

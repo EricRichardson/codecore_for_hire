@@ -1,0 +1,11 @@
+<div class = 'well bs-component'>
+  <legend>Edit User</legend>
+    <%= simple_form_for [@profile.user, @profile] do |f| %>
+      <%= f.input :twitter %>
+      <%= f.input :linkedin %>
+      <%= f.input :github %>
+      <%= f.input :resume, multiple: true %>
+      <%= f.input :description %>
+      <%= f.button :submit, class: "btn-primary" %>
+    <% end %>
+</div>
