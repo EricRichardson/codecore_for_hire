@@ -31,11 +31,11 @@ class UsersController < ApplicationController
     if params[:hire?]
       @header = "Students for Hire"
       @page = params[:page].to_i
-      @users = User.where({for_hire: true, activated: true}).order(created_at: :desc).page(@page).per(10)
+      @users = User.where(for_hire: true).order(created_at: :desc).page(@page).per(10)
     else
       @header = "All Students"
       @page = params[:page].to_i
-      @users = User.where(activated: true).order(created_at: :desc).page(@page).per(10)
+      @users = User.order(created_at: :desc).page(@page).per(10)
     end
   end
 
