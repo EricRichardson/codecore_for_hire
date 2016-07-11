@@ -10,3 +10,7 @@
   <%= link_to "View Profiles", user_path(user) %>
   <hr>
 <% end %>
+
+<% if @users.length == 0 %>
+  <h2>Sorry, no users found<h2>
+<% end %>
