@@ -29,3 +29,11 @@ body {
     .tt-dropdown-menu
       top: 32px !important
       width: 100%*/
+
+.foot {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  padding: 0px !important;
+  width: 100% !important;
+}

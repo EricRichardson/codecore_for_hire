@@ -111,7 +111,6 @@ ActiveRecord::Schema.define(version: 20160711012153) do
     t.boolean  "for_hire"
     t.boolean  "activated",       default: false
     t.boolean  "admin",           default: false
-    t.string   "profile_picture"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "reset_token"
