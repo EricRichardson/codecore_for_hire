@@ -4,11 +4,6 @@
 @import "bootswatch/paper/bootswatch";
 body { padding-top: 120px; }
 
-.container {
-  padding-left: 150px;
-  padding-right: 150px;
-}
-
 img { width: 140px;
       position: relative;
       top: -4px;
@@ -166,7 +161,11 @@ input.btn-primary:hover, .btn-primary:active:hover, .btn-primary:focus, .btn-pri
     padding-left: 10px;
     padding-right: 10px;
   }
-
+  .container {
+    padding-left: 150px;
+    padding-right: 150px;
+    margin: 0px;
+  }
 
   .form-control {
     display: inline-block;
