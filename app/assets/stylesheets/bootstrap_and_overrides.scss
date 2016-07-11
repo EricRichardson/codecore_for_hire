@@ -4,6 +4,10 @@
 @import "bootswatch/paper/bootswatch";
 body { padding-top: 120px; }
 
+.container {
+  padding-bottom: 80px;
+}
+
 img { width: 140px;
       position: relative;
       top: -4px;
@@ -355,8 +359,14 @@ body > div > div > a{
   height: 105px;
 }
 
-body > div > div > h1, body > div > div > p{
+body > div > div > h1 {
   color: white !important;
+}
+
+footer > div > p,
+footer > div > a,
+body > div > div > p{
+  color: white ;
 }
 
 // youtube video background
