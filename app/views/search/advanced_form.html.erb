@@ -1,8 +1,17 @@
-<h1>Advanced Search<h1>
+<h1>Advanced Search</h1>
 
 <%= form_tag("/search/advanced", method: "post", enforce_utf8: false) do %>
-<%= text_field_tag :name, nil, class: "form-control", placeholder: 'Enter user name here...' %>
-<%= text_field_tag :skill, nil, class: "form-control", placeholder: 'Enter desired skill here...' %>
-<%= text_field_tag :education, nil, class: "form-control", placeholder: 'Enter place of education here...' %>
-<%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+  <div class="form-group">
+    <%= label_tag(:name, "Student Name:", class: "control-label") %>
+    <%= text_field_tag :name, nil, class: "form-control", placeholder: "Enter the student's name here..." %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:skills, "Skills:", class: "control-label") %>
+    <%= text_field_tag :skills, nil, class: "form-control", placeholder: 'Enter desired skills here (Separate skills with comma, no space)...' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:skills, "Education:", class: "control-label") %>
+    <%= text_field_tag :school, nil, class: "form-control", placeholder: 'Enter place of education here...' %>
+  </div>
+  <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
 <% end %>
