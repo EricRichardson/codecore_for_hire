@@ -17,3 +17,14 @@
 //= require bootstrap-typeahead-rails
 //= require handlebars
 //= require_tree .
+
+// $(document).ready(function(){
+//   $('#query').mouseenter(function(){
+//     console.log("enter");
+//     $(this).css("border", "1px solid white");
+//   });
+//   $('#query').mouseleave(function(){
+//     console.log("leave");
+//     $(this).css("border","");
+//   });
+// });
