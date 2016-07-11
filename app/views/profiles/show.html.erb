@@ -51,17 +51,8 @@
   <%= @profile.user.full_name %>
 </div>
 
-<div>
-  <% if can? :manage, @profile %>
-    Edit Description
-    <%= link_to fa_icon("pencil-square"), edit_user_profile_description_path(@profile.user, @profile, @profile.description), remote: :true%>
-  <% end %>
-</div>
-
 <div id="description-form">
-  <% if @profile.description %>
-    <%= @profile.description.body %>
-  <% end %>
+  <%= @profile.description %>
 </div>
 
 
