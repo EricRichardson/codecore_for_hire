@@ -1,3 +1,6 @@
+<div class = 'well bs-component'>
+  <legend>Edit Project</legend>
+  <% @project.errors.full_messages.join(", ") %>
 <%= simple_form_for [@user, @profile, @project] do |f| %>
   <%= f.input :title %>
   <%= f.input :link %>
