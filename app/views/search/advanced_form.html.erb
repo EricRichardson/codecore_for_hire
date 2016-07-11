@@ -1,10 +1,11 @@
+<div class="advanced-form-div">
 <h3>Advanced Search</h3>
 <div class = 'well bs-component'>
 <%= form_tag("/search/advanced", method: "post", enforce_utf8: false) do %>
   <form class="form-horizontal">
     <fieldset>
       <div class="form-group">
-        <%= label_tag(:name, "Student Name:", class: "col-lg-5 control-label") %>
+        <%= label_tag(:name, "Student Name:", class: "col-lg-5 control-label special-button") %>
           <%= text_field_tag :name, nil, class: "col-lg-10 form-control", placeholder: "Enter the student's name here..." %>
       </div>
 
@@ -22,4 +23,5 @@
     </fieldset>
   </form>
 <% end %>
+</div>
 </div>
