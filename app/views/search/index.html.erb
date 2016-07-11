@@ -2,12 +2,24 @@
 
 <% @users.each do |user| %>
   <div>
-    <%= image_tag user.image.url(:medium) %>
+    <% if user.image.file.nil? %>
+      <%= image_tag("default_profile_picture.png") %>
+    <% else %>
+      <%= image_tag(user.image.url(:medium)) %>
+    <% end %>
   </div>
   <div>
-  <%= user.full_name %>
+    <%= user.full_name %>
   </div>
-  <%= link_to "View Profiles", user_path(user) %>
+
+    <%= link_to "View Profile", user_profile_path(user, user.profile) %>
+
+  <div id="activation">
+    <% if can? :manage, @user %>
+      <%= render "activations/form", {user: user} %>
+    <% end %>
+  </div>
+
   <hr>
 <% end %>
 
