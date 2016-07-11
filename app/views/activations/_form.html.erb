@@ -1,6 +1,6 @@
 
 <% if user.activated? %>
-  <%= link_to "Deactivate", user_activation_path(user), remote: :true, method: :patch %>
+  <%= link_to "Deactivate", user_activation_path(user), class:"btn btn-primary", remote: :true, method: :patch %>
 <% else %>
-  <%= link_to "Activate", user_activation_path(user), remote: :true, method: :patch %>
+  <%= link_to "Activate", user_activation_path(user), class:"btn btn-primary", remote: :true, method: :patch %>
 <% end %>

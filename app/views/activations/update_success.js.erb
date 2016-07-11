@@ -1,2 +1,2 @@
 <% @activating_user = User.find params[:id]  %>
-$('#activation').html('<%= j render "form", user: @activating_user %>')
+$('#<%= dom_id(@activating_user) %>').html('<%= j render "form", user: @activating_user %>');
