@@ -1,5 +1,7 @@
+<div class= "well bs-componet">
 <%= simple_form_for [@user, @profile, @skill] do |f| %>
   <%= f.input :name %>
   <%= f.input :rating, collection: 1..10%>
   <%= f.button :submit, class: "btn-primary" %>
 <% end %>
+</div>

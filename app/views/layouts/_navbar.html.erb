@@ -24,7 +24,9 @@
 
       <%= form_tag("/search", method: "get", enforce_utf8: false, class: "navbar-form navbar-right") do %>
       <%= text_field_tag :query, nil, class: "form-control", placeholder: 'Search' %>
-      <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+      <%= button_tag(type: "submit", class: "jumbo-search-button") do %>
+        <%= fa_icon("search") %>
+      <% end %>
       <% end %>
 
       <ul class="nav navbar-nav navbar-right">
