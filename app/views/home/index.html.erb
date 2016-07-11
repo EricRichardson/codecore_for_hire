@@ -4,8 +4,15 @@
   <h1>Welcome To CodeCore For Hire</h1>
   <p class="Intro">Looking for skilled coders? Search through our student profiles.<br>CodeCore student? Create an account or sign in!</p>
 
-  <a href= "<%= @for_hire_url %>" class="btn btn-primary btn-lg home-buttons hvr-bob"><div class= "wordwrap">View Students Available For Hire</div></a>
-  <a href= "<%= @sign_up_url %>"  class="btn btn-primary btn-lg home-buttons hvr-bob"><div class= "wordwrap">Sign Up</div></a>
-  <a href= "http://codecore.ca" class="btn btn-primary btn-lg home-buttons hvr-bob"><div class= "wordwrap">Learn More About CodeCore</div></a>
+  <a href= "<% @for_hire_url %>" class="btn btn-primary btn-lg home-buttons hvr-bob">View Students Available For Hire</a>
+  <%= link_to users_path, nil, class: "btn btn-primary btn-lg home-buttons hvr-bob" %>
+  <a href=<%=@sign_up_url%>  class="btn btn-primary btn-lg home-buttons hvr-bob"><div class= "wordwrap">Sign Up</div></a>
+  <a href= "http://codecore.ca" , class="btn btn-primary btn-lg home-buttons hvr-bob"><div class= "wordwrap">Learn More About CodeCore</div></a>
 
+  <a class="btn btn-primary btn-lg home-buttons hvr-bob"><div class= "wordwrap">View Students Available For Hire</div></a>
+  <a class="btn btn-primary btn-lg home-buttons hvr-bob"><div class= "wordwrap">Sign Up</div></a>
+  <a class="btn btn-primary btn-lg home-buttons hvr-bob"><div class= "wordwrap">Learn More About CodeCore</div></a>
+
+
+<div class="hvr-bob">Hello</div>
 </div>

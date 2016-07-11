@@ -2,16 +2,18 @@
 @import "bootswatch/paper/variables";
 @import "bootstrap";
 @import "bootswatch/paper/bootswatch";
+
 body { padding-top: 120px; }
 
 .container {
   padding-bottom: 80px;
 }
 
-img { width: 140px;
-      position: relative;
-      top: -4px;
-    };
+img {
+  width: 140px;
+  position: relative;
+  top: -4px;
+};
 
 //Search button
 #bs-example-navbar-collapse-2 > form > button {
@@ -308,6 +310,7 @@ input.btn-primary:hover, .btn-primary:active:hover, .btn-primary:focus, .btn-pri
   backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .hvr-bob:hover, .hvr-bob:focus, .hvr-bob:active {
   -webkit-animation-name: hvr-bob-float, hvr-bob;
   animation-name: hvr-bob-float, hvr-bob;
@@ -381,7 +384,7 @@ body > div > div > p{
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-  
+
   z-index: -100;
   background-size: cover;
   overflow: hidden;
@@ -413,15 +416,15 @@ i.fa {
   box-shadow: 2px 2px 10px #888888;
   margin-left: 25px;
   margin-top: 10px;
-
   width: 500px;
 }
 
 
-html{
+html {
   position: relative;
   min-height: 100%;
 }
+
 //Footer
 footer.foot {
   position: absolute;
