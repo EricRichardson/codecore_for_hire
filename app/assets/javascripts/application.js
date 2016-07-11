@@ -39,7 +39,3 @@
 //     }
 //   })
 // })
-
-function onPlayerReady(event){
-    player.mute();
-}
