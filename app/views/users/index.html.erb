@@ -22,17 +22,8 @@
         <% end %>
       </div>
     </div>
-    <%= link_to "View Profile", user_profile_path(user, user.profile) %>
+  
   <% end %>
 </div>
-
-
-
-  <% if can? :manage, @user %>
-  <div id=<%= dom_id(user) %>>
-      <%= render "activations/form", {user: user} %>
-  </div>
-  <% end %>
-
   <hr>
 <%= paginate @users %>
