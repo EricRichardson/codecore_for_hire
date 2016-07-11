@@ -321,14 +321,13 @@ body > div > div > p{
   z-index:-101;
 }
 
-iframe {
+.full-width {
   position: absolute;
   right: 0;
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-  width: auto;
-  height: auto;
+  
   z-index: -100;
   background-size: cover;
   overflow: hidden;
