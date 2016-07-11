@@ -166,6 +166,25 @@ input.btn-primary:hover, .btn-primary:active:hover, .btn-primary:focus, .btn-pri
 .jumbo-search-button {
   height: 40px;
   font-size: 25px;
+  color: #CB0D0F;
+  background-color: white;
+  border-radius: 3px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  position: relative;
+  bottom: -8px;
+  left: -4px;
+}
+
+
+.jumbo-search-button, .jumbo-search-bar{
+  border: 1px solid #d9d9d9;
+  border-top: 1px solid #d9d9d9;
+}
+
+.fa-search{
+  position: relative;
+  top: -3px;
 }
 
 .intro {
