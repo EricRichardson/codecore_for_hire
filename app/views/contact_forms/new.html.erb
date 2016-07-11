@@ -1,9 +1,30 @@
 <div class = 'well bs-component'>
-<legend>Contact <%= @user.full_name %></legend>
 
-<%= form_tag contact_forms_path(email: @user.email) do %>
-  <%= text_field_tag :from, nil, :required => true %>
-  <%= text_area_tag :message, nil, :required => true %>
-  <%= submit_tag :submit, class: "btn-primary" %>
-<% end %>
+  <div class = 'well bs-component'>
+    <h3>Contact <%= @user.full_name %></h3>
+    <%= form_tag contact_forms_path do %>
+      <%= hidden_field_tag :email, @user.email %>
+      <form class="form-horizontal">
+        <fieldset>
+            <div class="form-group">
+              <%= label_tag :from, "From:", class: "col-lg-2 control-label" %>
+              <div class="col-lg-10">
+                <%= text_field_tag :from, nil, {:class => "form-control", :style => "padding: 15px"} %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= label_tag :message,"Message:", class: "col-lg-2 control-label" %>
+              <div class="col-lg-10">
+                <%= text_area_tag :from, nil, {:class => "form-control", :style => "padding: 15px"} %>
+              </div>
+            </div>
+
+            <div class="col-lg-10 col-lg-offset-2">
+              <%= submit_tag "Send Message", class: "btn btn-primary" %>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    <% end %>
 </div>

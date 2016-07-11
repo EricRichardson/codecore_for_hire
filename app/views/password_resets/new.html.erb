@@ -1,8 +1,20 @@
 <div class = 'well bs-component'>
-  <legend>Forgot Your Password?</legend>
-
+  <h3>Reset Password</h3>
   <%= form_tag password_resets_path do %>
-    <%= text_field_tag :email %>
-    <%= submit_tag %>
+  <form class="form-horizontal">
+    <fieldset>
+        <div class="form-group">
+          <%= label_tag :email,"Email:", class: "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= email_field_tag :email, nil, {:class => "form-control", :style => "padding: 15px"} %>
+          </div>
+        </div>
+
+        <div class="col-lg-10 col-lg-offset-2">
+          <%= submit_tag "Reset Password", class: "btn btn-primary" %>
+        </div>
+      </div>
+    </fieldset>
+  </form>
   <% end %>
 </div>

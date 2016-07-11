@@ -1,6 +1,5 @@
 class PasswordResetsController < ApplicationController
   def new
-
   end
 
   def create
@@ -24,7 +23,7 @@ class PasswordResetsController < ApplicationController
     user = User.find params[:id]
     if user && params[:new_password] == params[:new_password_confirmation]
       user.update password: params[:new_password]
-      redirect_to root_path
+      redirect_to root_path, notice: "Password Reset"
     else
       flash[:alert] = "An error has occured"
       render :edit
