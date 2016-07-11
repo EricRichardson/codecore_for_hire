@@ -3,8 +3,10 @@ class DescriptionsController < ApplicationController
   before_action :find_user
   before_action :find_profile
   before_action :find_description, only: [:edit, :update, :destroy]
+
   def new
     @description = Description.new
+
   end
 
   def create
@@ -22,6 +24,10 @@ class DescriptionsController < ApplicationController
 
   def edit
     redirect_to root_path, alert: "access defined" unless can? :edit, @profile
+    respond_to do |format|
+      format.html { render "descriptions/edit" }
+      format.js   { render "descriptions/update_success" }
+    end
   end
 
   def update

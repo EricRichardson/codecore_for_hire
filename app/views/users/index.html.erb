@@ -14,13 +14,9 @@
 
     <%= link_to "View Profile", user_profile_path(user, user.profile) %>
 
-  <div>
+  <div id="activation">
     <% if can? :manage, @user %>
-      <% if user.activated? %>
-        <%= link_to "Deactivate", user_activation_path(user), method: :patch %>
-      <% else %>
-        <%= link_to "Activate", user_activation_path(user), method: :patch %>
-      <% end %>
+      <%= render "activations/form", {user: user} %>
     <% end %>
   </div>
 

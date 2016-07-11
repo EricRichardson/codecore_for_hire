@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'home#index'
 
+  get 'home/about' => 'home#about'
+
   patch '/activate_user/:id' => 'activations#update', as: :user_activation
 
   delete '/activate_user/:id' => 'activations#delete'

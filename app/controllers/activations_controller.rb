@@ -7,8 +7,12 @@ class ActivationsController < AdministrativeController
   def update
     @activating_user = User.find params[:id]
     status = @activating_user.activated
+    ActivationsMailer.activated_notification(@activating_user).deliver_now
     @activating_user.update(activated: !status)
-    redirect_to users_path
+    respond_to do |format|
+      format.html { redirect_to users_path }
+      format.js   { render "activations/update_success" }
+    end
   end
 
   private

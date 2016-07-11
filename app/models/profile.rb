@@ -4,7 +4,6 @@ class Profile < ActiveRecord::Base
   has_many :projects, dependent: :destroy
   has_many :educations, dependent: :destroy
   has_many :skills, dependent: :destroy
-  has_one :description, dependent: :destroy 
   mount_uploader :resume, ResumeUploader
 
 end

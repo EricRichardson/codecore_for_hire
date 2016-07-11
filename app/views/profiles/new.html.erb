@@ -1,9 +1,2 @@
 <h1>Add Profile Info</h1>
-
-<%= simple_form_for @profile, {url: user_profiles_path} do |f| %>
-  <%= f.input :twitter %>
-  <%= f.input :linkedin %>
-  <%= f.input :github %>
-  <%= f.input :resume, multiple: true %>
-  <%= f.button :submit, class: "btn-primary" %>
-<% end %>
+<%= render "profiles/form" %>

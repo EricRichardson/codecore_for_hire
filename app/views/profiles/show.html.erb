@@ -38,12 +38,6 @@
   <div id="project-form"></div>
 </div>
 
-<div>
-  <% if can? :manage, @profile %>
-    <%= link_to "Edit Description", new_user_profile_description_path(@profile.user, @profile)%>
-  <% end %>
-</div>
-
 
 <div id="profile-picture">
   <% if @profile.user.image.file.nil? %>
@@ -57,9 +51,10 @@
   <%= @profile.user.full_name %>
 </div>
 
-<div>
-  <%= @profile.description.body %>
+<div id="description-form">
+  <%= @profile.description %>
 </div>
+
 
 <div>
   <%= link_to fa_icon("linkedin"), "#{@profile.linkedin}" %>
