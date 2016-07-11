@@ -315,11 +315,7 @@ body > div > div > p{
   color: white ;
 }
 
-// youtube video background
-.jumbotron{
-  position: relative;
-  z-index:-101;
-}
+
 
 .full-width {
   position: absolute;
@@ -327,7 +323,7 @@ body > div > div > p{
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-  
+
   z-index: -100;
   background-size: cover;
   overflow: hidden;
