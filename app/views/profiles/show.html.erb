@@ -25,13 +25,9 @@
 
 <%= link_to "Contact", new_contact_form_path(id: @profile.user.id), class: "btn btn-primary" %>
 
-<div>
+<div id="activation">
   <% if can? :manage, @profile.user %>
-    <% if @profile.user.activated? %>
-      <%= link_to "Deactivate", user_activation_path(@profile.user, @profile), method: :patch %>
-    <% else %>
-      <%= link_to "Activate", user_activation_path(@profile.user, @profile), method: :patch %>
-    <% end %>
+    <%= render "activations/form", user: @profile.user %>
   <% end %>
 </div>
 

@@ -7,6 +7,7 @@ body { padding-top: 120px; }
 .container {
   padding-left: 80px;
   padding-right: 80px;
+  padding-bottom: 80px;
 }
 
 img { width: 140px;
@@ -304,8 +305,14 @@ body > div > div > a{
   height: 105px;
 }
 
-body > div > div > h1, body > div > div > p{
+body > div > div > h1 {
   color: white !important;
+}
+
+footer > div > p,
+footer > div > a,
+body > div > div > p{
+  color: white ;
 }
 
 // youtube video background
