@@ -1,13 +1,15 @@
-skills
 <% profile.skills.each do |skill| %>
   <div>
-    <%= skill.name %>
-    <%= skill.rating %>
+    <h4 style="display: inline-block"><%= skill.name %></h4>
+    <h5 style="display: inline-block">(<%= skill.rating %> / 10)</h5>
     <% if can? :manage, profile %>
-    <%= link_to "Edit", edit_user_profile_skill_path(profile.user, profile, skill), remote: :true %>
+      <%= link_to "Edit", edit_user_profile_skill_path(profile.user, profile, skill), remote: :true %>
+      <%= link_to "Delete", user_profile_skill_path(profile.user, profile, skill), method: :delete, data:  {confirm: "Are you sure?" } %>
     <div id="skill-edit-form"></div>
-    <%= link_to "Delete", user_profile_skill_path(profile.user, profile, skill), method: :delete, data:  {confirm: "Are you sure?" } %>
     <% end %>
+    <div class="progress progress-striped active">
+      <div class="progress-bar" style="width: <%= skill.rating %>0%"></div>
+    </div>
   </div>
 <% end %>
 <hr>

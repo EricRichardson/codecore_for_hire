@@ -1,16 +1,14 @@
 <div>
-  <label>Experiences</label>
   <% profile.experiences.each do |experience|  %>
   <div>
-      <%= experience.company %>
-      <%= experience.title %>
-      <%= experience.description %>
-      <%= experience.start %>
-      <%= experience.end %>
+      <h4><%= experience.company %></h4>
+      <h5 style="color: grey"><%= experience.title %></h5>
+      <%= experience.start %> - <%= experience.end %><br>
+      <%= experience.description %><br>
       <% if can? :manage, profile %>
-      <%= link_to "Edit", edit_user_profile_experience_path(profile.user, profile, experience), remote: :true %>
-      <div id="experience-edit-form"></div>
-      <%= link_to "Delete", user_profile_experience_path(profile.user, profile, experience), method: :delete, data:  {confirm: "Are you sure?" } %>
+        <%= link_to "Edit", edit_user_profile_experience_path(profile.user, profile, experience), remote: :true %>
+        <%= link_to "Delete", user_profile_experience_path(profile.user, profile, experience), method: :delete, data:  {confirm: "Are you sure?" } %>
+        <div id="experience-edit-form"></div>
       <% end %>
       <hr>
   </div>
