@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   delete '/activate_user/:id' => 'activations#delete'
 
+  get '/activate_users' => 'activations#index'
+
   get "users/autocomplete" => "users#autocomplete"
 
   resources :users do

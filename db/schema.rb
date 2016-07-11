@@ -110,12 +110,13 @@ ActiveRecord::Schema.define(version: 20160710210956) do
     t.boolean  "for_hire"
     t.boolean  "activated",       default: false
     t.boolean  "admin",           default: false
-    t.string   "profile_picture"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "reset_token"
     t.datetime "sent_at"
+    t.string   "profile_picture"
     t.string   "image"
+    t.string   "resume"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
