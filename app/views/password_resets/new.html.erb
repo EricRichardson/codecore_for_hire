@@ -1,7 +1,8 @@
-<h1>Forgot Your Password?</h1>
+<div class = 'well bs-component'>
+  <legend>Forgot Your Password?</legend>
 
-<%= form_tag password_resets_path do %>
-  <%= label_tag :email %>
-  <%= email_field_tag :email %>
-  <%= submit_tag %>
-<% end %>
+  <%= form_tag password_resets_path do %>
+    <%= text_field_tag :email %>
+    <%= submit_tag %>
+  <% end %>
+</div>

@@ -1,4 +1,9 @@
 <h1 style="display: inline-block"><%= @profile.user.full_name %></h1>
+
+<div id="description-form">
+  <%= @profile.description %>
+</div>
+
 <div style="display: inline-block; margin-left: 10px; bottom: 20px;">
   <%= link_to fa_icon("linkedin"), "#{@profile.linkedin}" %>
   <%= link_to fa_icon("twitter"), "#{@profile.twitter}" %>
@@ -6,20 +11,25 @@
   <%= link_to fa_icon("download"), @profile.resume.url %>
 </div>
 
-<div id="prorfile-picture">
-  <%= image_tag @profile.user.image.url(:medium) %>
+<div id="profile-picture">
+  <% if @profile.user.image.file.nil? %>
+    <%= image_tag("default_profile_picture.png") %>
+  <% else %>
+    <%= image_tag(@profile.user.image.url(:medium)) %>
+  <% end %>
 </div>
-
 
 <%= link_to "Contact", new_contact_form_path(id: @profile.user.id), class: "btn btn-primary" %>
 
-<!-- <div> -->
-  <%# if can? :manage @profile %>
-    <%#= link_to "Activate", activation_path(@profile.user, @profile) %>
-  <%# else %>
-    <%#= link_to "Deactivate", activation_path(@profile.user, @profile) %>
-  <%# end %>
-<!-- </div> -->
+<div>
+  <% if can? :manage, @profile.user %>
+    <% if @profile.user.activated? %>
+      <%= link_to "Deactivate", user_activation_path(@profile.user, @profile), method: :patch %>
+    <% else %>
+      <%= link_to "Activate", user_activation_path(@profile.user, @profile), method: :patch %>
+    <% end %>
+  <% end %>
+</div>
 
 <ul class="nav nav-tabs">
   <li class=""><a href="#skills" data-toggle="tab" aria-expanded="false"><h4>Skills</h4></a></li>
@@ -52,7 +62,6 @@
     <div id="list">
       <%= render "projects/list", {skills: @profile.skills, profile: @profile}%>
     </div>
-  </div>
 
   <div class="tab-pane fade" id="education">
     <div>

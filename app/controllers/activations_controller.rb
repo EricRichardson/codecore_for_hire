@@ -1,8 +1,13 @@
 class ActivationsController < AdministrativeController
 
+  def index
+    @users = User.where(activated: false).order(created_at: :desc).page(@page).per(10)
+  end
+
   def update
     @activating_user = User.find params[:id]
     status = @activating_user.activated
+    ActivationsMailer.activated_notification(@activating_user).deliver_now 
     @activating_user.update(activated: !status)
     redirect_to users_path
   end

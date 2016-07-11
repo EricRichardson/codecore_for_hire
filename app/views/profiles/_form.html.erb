@@ -1,7 +1,9 @@
-<%= simple_form_for @profile, :url => user_profile_path do |f| %>
+
+<%= simple_form_for [@profile.user, @profile] do |f| %>
   <%= f.input :twitter %>
   <%= f.input :linkedin %>
   <%= f.input :github %>
   <%= f.input :resume, multiple: true %>
-  <%= f.submit "Add Project" %>
+  <%= f.input :description %>
+  <%= f.button :submit, class: "btn-primary" %>
 <% end %>
