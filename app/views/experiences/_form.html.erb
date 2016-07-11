@@ -1,9 +1,12 @@
-<% @experience.errors.full_messages.join(", ") %>
-<%= simple_form_for [@user,@profile,@experience] do |f| %>
-  <%= f.input :company %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :start, as: :date, discard_day: true  %>
-  <%= f.input :end, as: :date, discard_day: true  %>
-  <%= f.submit %>
-<% end %>
+<div class = 'well bs-component'>
+  <legend>Edit Experience</legend>
+  <% @experience.errors.full_messages.join(", ") %>
+  <%= simple_form_for [@user,@profile,@experience] do |f| %>
+    <%= f.input :company %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :start, as: :date, discard_day: true  %>
+    <%= f.input :end, as: :date, discard_day: true  %>
+    <%= f.submit %>
+  <% end %>
+</div>

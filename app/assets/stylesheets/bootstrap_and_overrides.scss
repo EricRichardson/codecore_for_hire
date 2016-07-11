@@ -2,7 +2,13 @@
 @import "bootswatch/paper/variables";
 @import "bootstrap";
 @import "bootswatch/paper/bootswatch";
-body { padding-top: 100px; }
+body { padding-top: 120px; }
+
+.container {
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
 img { width: 140px;
       position: relative;
       top: -4px;
@@ -10,21 +16,48 @@ img { width: 140px;
 
 //Sign-in button
 
-#loginModal > div > div > div.modal-body > form > fieldset > div:nth-child(4) > div > input.btn-primary {
+input.btn-primary, .btn-primary {
   background-color: #CB0D0F;
 }
 
-#loginModal > div > div > div.modal-body > form > fieldset > div:nth-child(4) > div > input.btn-primary:hover, .btn-primary:active:hover, .btn-primary:focus {
+input.btn-primary:hover, .btn-primary:active:hover, .btn-primary:focus, .btn-primary:hover {
   background-color: #A00000;
 }
 
 // Regular screens
 @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
+
+  .container {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+
   body > div > div.well.bs-component {
     width: 500px;
     margin-right: auto;
     margin-left: auto;
     box-shadow: 2px 2px 10px #888888;
+  }
+
+
+  .flexbox {
+    display: flex;
+  }
+
+  body > div > div.flexbox > div:nth-child(2) > h1 {
+    margin-top: 3px;
+  }
+
+  #profile-picture {
+    margin-right: 20px;
+  }
+
+  body > div > div.flexbox > div:nth-child(2) > h1 {
+    display: inline-block;
+  }
+
+  body > div > ul {
+    margin-top: 30px;
   }
 }
 
@@ -76,11 +109,12 @@ img { width: 140px;
 }
 
 
-@media (max-width: 790px) {
+@media (max-width: 886px) {
   .container-fluid {
     padding-left: 10px;
     padding-right: 10px;
   }
+
 
   .form-control {
     display: inline-block;
@@ -116,6 +150,7 @@ img { width: 140px;
 }
 
 .jumbo-home {
+  position: relative !important;
   text-align: center;
 }
 
@@ -132,6 +167,25 @@ img { width: 140px;
 .jumbo-search-button {
   height: 40px;
   font-size: 25px;
+  color: #CB0D0F;
+  background-color: white;
+  border-radius: 3px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  position: relative;
+  bottom: -8px;
+  left: -4px;
+}
+
+
+.jumbo-search-button, .jumbo-search-bar{
+  border: 1px solid #d9d9d9;
+  border-top: 1px solid #d9d9d9;
+}
+
+.fa-search{
+  position: relative;
+  top: -3px;
 }
 
 .intro {
@@ -235,15 +289,49 @@ img { width: 140px;
    color:    white;
 }
 
-.jumbotron {
-  background-image: url("http://www.placecage.com/200/300");
-  transition: 1000ms;
+// .jumbotron {
+//   background-image: url("http://www.placecage.com/200/300");
+//   transition: 1000ms;
+// }
+//
+// .jumbotron:hover {
+//   background-image: url("http://www.placecage.com/300/200");
+//   transition: 1000ms;
+// }
+
+// making three buttons same height
+body > div > div > a{
+  height: 105px;
 }
 
-.jumbotron:hover {
-  background-image: url("http://www.placecage.com/300/200");
-  transition: 1000ms;
+body > div > div > h1, body > div > div > p{
+  color: white !important;
 }
+
+// youtube video background
+.jumbotron{
+  position: relative;
+  z-index:-101;
+}
+
+iframe {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background-size: cover;
+  overflow: hidden;
+}
+
+// #sign-up{
+//   display: flex;
+//   align-items:center;
+//   justify-content:center;
+// }
 
 .wordwrap {
    white-space: pre-wrap;      /* CSS3 */
@@ -251,4 +339,36 @@ img { width: 140px;
    white-space: -pre-wrap;     /* Opera <7 */
    white-space: -o-pre-wrap;   /* Opera 7 */
    word-wrap: break-word;      /* IE */
+}
+
+i.fa {
+   font-size: 30px;
+   margin: 4px;
+   bottom: 3px;
+}
+
+// Edit Education in Show profile
+
+#project-edit-form > div, #skill-edit-form > div, #education-edit-form > div, #experience-edit-form > div, #skill-form {
+  box-shadow: 2px 2px 10px #888888;
+  margin-left: 25px;
+  margin-top: 10px;
+
+  width: 500px;
+}
+
+
+html{
+  position: relative;
+  min-height: 100%;
+}
+//Footer
+footer.foot {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #CB0D0F;
+  text-align: center;
+  color: grey;
 }

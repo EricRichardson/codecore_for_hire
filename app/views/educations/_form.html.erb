@@ -1,12 +1,12 @@
-<h1>Add Education to Profile</h1>
-
-<h4><%= @education.errors.full_messages.join(". ")  %></h4>
-
-<%= simple_form_for [@user, @profile, @education] do |f| %>
-  <%= f.input :school %>
-  <%= f.input :major %>
-  <%= f.input :description %>
-  <%= f.input :start %>
-  <%= f.input :end %>
-  <%= f.button :submit, class: "btn-primary" %>
-<% end %>
+  <div class = 'well bs-component'>
+      <legend>Edit Education</legend>
+      <% @education.errors.full_messages.join(", ") %>
+      <%= simple_form_for [@user, @profile, @education] do |f| %>
+        <%= f.input :school %>
+        <%= f.input :major %>
+        <%= f.input :description %>
+        <%= f.input :start, discard_day: true %>
+        <%= f.input :end, discard_day: true %>
+        <%= f.button :submit, class: "btn-primary" %>
+      <% end %>
+  </div>

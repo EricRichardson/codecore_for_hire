@@ -1,73 +1,95 @@
-<h1>Profile Page</h1>
-
-<!-- <div> -->
-  <%# if can? :manage @profile %>
-    <%#= link_to "Activate", activation_path(@profile.user, @profile) %>
-  <%# else %>
-    <%#= link_to "Deactivate", activation_path(@profile.user, @profile) %>
-  <%# end %>
-<!-- </div> -->
-
-<div>
-  <% if can? :manage, @profile %>
-    <%= link_to "Add Skills", new_user_profile_skill_path(@profile.user, @profile), remote: :true %>
-  <% end %>
-  <div id="skill-form"></div>
-</div>
-
-<div>
-  <% if can? :manage, @profile %>
-    <%= link_to "Add Educations", new_user_profile_education_path(@profile.user, @profile), remote: :true%>
-  <% end %>
-  <div id="education-form"></div>
-</div>
-
-<div>
-  <% if can? :manage, @profile %>
-    <%= link_to "Add Experiences", new_user_profile_experience_path(@profile.user, @profile), remote: :true %>
-  <% end %>
-  <div id="experience-form"></div>
-</div>
-
-<div>
-  <% if can? :manage, @profile %>
-    <%= link_to "Add Projects", new_user_profile_project_path(@profile.user, @profile), remote: :true %>
-  <% end %>
-  <div id="project-form"></div>
-</div>
-
-<div id="prorfile-picture">
-  <%= image_tag @profile.user.image.url(:medium) %>
-  <%#= image_tag @question.image.url(:medium) %>
-</div>
-
-<div>
-  <%= @profile.user.full_name %>
-</div>
-
-<div>
-  <%= link_to fa_icon("linkedin"), "#{@profile.linkedin}" %>
-  <%= link_to fa_icon("twitter"), "#{@profile.twitter}" %>
-  <%= link_to fa_icon("github"), "#{@profile.github}" %>
-  <%= link_to fa_icon("download"), @profile.resume.url %>
-</div>
-
-<div>
-  <div>
-    <%= link_to "Skills", user_profile_skills_path(@profile.user, @profile), remote: :true%>
-    |
-    <%= link_to "Educations", user_profile_educations_path(@profile.user, @profile), remote: :true%>
-    |
-    <%= link_to "Experiences", user_profile_experiences_path(@profile.user, @profile), remote: :true%>
-    |
-    <%= link_to "Projects", user_profile_projects_path(@profile.user, @profile), remote: :true%>
-    |
+<!-- Prof Pic -->
+<div class="flexbox">
+  <div id="profile-picture">
+    <% if @profile.user.image.file.nil? %>
+    <%= image_tag("default_profile_picture.png") %>
+    <% else %>
+    <%= image_tag(@profile.user.image.url(:medium)) %>
+    <% end %>
   </div>
-
-  <div id="list">
-    <%= render "skills/list", {skills: @profile.skills, profile: @profile}%>
+  <div style="display: inline-block">
+    <h1><%= @profile.user.full_name %></h1>
+    <div style="display: inline-block; margin-left: 10px; bottom: 20px;">
+      <%= link_to fa_icon("linkedin"), "#{@profile.linkedin}" %>
+      <%= link_to fa_icon("twitter"), "#{@profile.twitter}" %>
+      <%= link_to fa_icon("github"), "#{@profile.github}" %>
+      <%= link_to fa_icon("download"), @profile.resume.url %>
+    </div>
+    <div id="description-form">
+      <%= @profile.description %>
+    </div>
   </div>
 </div>
+
 
 
 <%= link_to "Contact", new_contact_form_path(id: @profile.user.id), class: "btn btn-primary" %>
+
+<div>
+  <% if can? :manage, @profile.user %>
+    <% if @profile.user.activated? %>
+      <%= link_to "Deactivate", user_activation_path(@profile.user, @profile), method: :patch %>
+    <% else %>
+      <%= link_to "Activate", user_activation_path(@profile.user, @profile), method: :patch %>
+    <% end %>
+  <% end %>
+</div>
+
+<ul class="nav nav-tabs">
+  <li class=""><a href="#skills" data-toggle="tab" aria-expanded="false"><h4>Skills</h4></a></li>
+  <li class=""><a href="#projects" data-toggle="tab" aria-expanded="false"><h4>Projects</h4></a></li>
+  <li class=""><a href="#education" data-toggle="tab" aria-expanded="false"><h4>Education</h4></a></li>
+  <li class=""><a href="#experiences" data-toggle="tab" aria-expanded="false"><h4>Experiences</h4></a></li>
+</ul>
+
+<div id="myTabContent" class="tab-content">
+
+  <div class="tab-pane fade" id="skills">
+    <div>
+      <% if can? :manage, @profile %>
+        <%= link_to "Add Skills", new_user_profile_skill_path(@profile.user, @profile), remote: :true %>
+      <% end %>
+      <div id="skill-form"></div>
+    </div>
+    <div id="list">
+      <%= render "skills/list", {skills: @profile.skills, profile: @profile}%>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="projects">
+    <div>
+      <% if can? :manage, @profile %>
+        <%= link_to "Add Projects", new_user_profile_project_path(@profile.user, @profile), remote: :true%>
+      <% end %>
+      <div id="project-form"></div>
+    </div>
+    <div id="list">
+      <%= render "projects/list", {skills: @profile.skills, profile: @profile}%>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="education">
+    <div>
+      <% if can? :manage, @profile %>
+        <%= link_to "Add Educations", new_user_profile_education_path(@profile.user, @profile), remote: :true%>
+      <% end %>
+      <div id="education-form"></div>
+    </div>
+    <div id="list">
+      <%= render "educations/list", {skills: @profile.skills, profile: @profile}%>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="experiences">
+    <div>
+      <% if can? :manage, @profile %>
+        <%= link_to "Add Experiences", new_user_profile_experience_path(@profile.user, @profile), remote: :true%>
+      <% end %>
+      <div id="experience-form"></div>
+    </div>
+    <div id="list">
+      <%= render "experiences/list", {skills: @profile.skills, profile: @profile}%>
+    </div>
+  </div>
+
+</div>

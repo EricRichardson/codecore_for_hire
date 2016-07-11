@@ -9,7 +9,7 @@ class ContactFormsController < ApplicationController
     from = params[:from]
     message = params[:message]
     if user
-      ContactFormsMailer.send_contact(user, from, message).deliver_now
+      ContactFormsMailer.send_contact(user, from, message).deliver_later
       flash[:notice] = "Your message was sent! They will be in contact with you soon!"
       redirect_to user_profile_path(user, user.profile)
     else

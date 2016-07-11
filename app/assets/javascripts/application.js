@@ -17,3 +17,29 @@
 //= require bootstrap-typeahead-rails
 //= require handlebars
 //= require_tree .
+
+// $(document).ready(function(){
+//   $('#query').mouseenter(function(){
+//     console.log("enter");
+//     $(this).css("border", "1px solid white");
+//   });
+//   $('#query').mouseleave(function(){
+//     console.log("leave");
+//     $(this).css("border","");
+//   });
+// });
+
+// $(document).ready(function(){
+//   $('#sign-in-form').submit(function(){
+//     if($('.alert-danger').html() === "Wrong credentials"){
+//
+//       return false;
+//     } else {
+//       return true;
+//     }
+//   })
+// })
+
+function onPlayerReady(event){
+    player.mute();
+}

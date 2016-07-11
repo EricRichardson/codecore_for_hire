@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   root 'home#index'
 
+  get 'home/about' => 'home#about'
+
   patch '/activate_user/:id' => 'activations#update', as: :user_activation
 
   delete '/activate_user/:id' => 'activations#delete'
+
+  get '/activate_users' => 'activations#index'
 
   get "users/autocomplete" => "users#autocomplete"
 
@@ -13,6 +17,7 @@ Rails.application.routes.draw do
       resources :projects
       resources :educations
       resources :skills
+      resources :descriptions
     end
   end
   resources :contact_forms, only: [:new, :create]
