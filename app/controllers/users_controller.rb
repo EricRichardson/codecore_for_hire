@@ -9,9 +9,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
-    profile = Profile.new
-    profile.user = @user
-    if @user.save && profile.save
+    @profile = Profile.new
+    @profile.user = @user
+    @user.profile = @profile
+    if @user.save && @profile.save
+      ActivationsMailer.activation_notification_admin(@user).deliver_now
       session[:user_id] = @user.id
       redirect_to new_user_profile_path(@user), notice: "Logged In!"
     else
