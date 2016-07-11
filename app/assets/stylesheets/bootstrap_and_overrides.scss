@@ -301,7 +301,7 @@ input.btn-primary:hover, .btn-primary:active:hover, .btn-primary:focus, .btn-pri
 // }
 
 // making three buttons same height
-body > div > div > a{
+body > div > div > .main-btn{
   height: 105px;
 }
 
@@ -327,7 +327,7 @@ body > div > div > p{
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-  
+
   z-index: -100;
   background-size: cover;
   overflow: hidden;
