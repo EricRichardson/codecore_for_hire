@@ -22,7 +22,10 @@ Rails.application.routes.draw do
   end
   resources :contact_forms, only: [:new, :create]
 
-  resources :search, param: :search
+  resources :search do
+    get "/advanced" => "search#advanced_form", on: :collection
+    post "/advanced" => "search#advanced_search", on: :collection
+  end
 
   resources :sessions, only: [:create, :new, :destroy] do
     delete :destroy, on: :collection
