@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @profile.user = @user
     @user.profile = @profile
     if @user.save && @profile.save
-      ActivationsMailer.activation_notification_admin(@user).deliver_now
+      ActivationsMailer.activation_notification_admin(@user).deliver_later
       session[:user_id] = @user.id
       redirect_to new_user_profile_path(@user), notice: "Logged In!"
     else
