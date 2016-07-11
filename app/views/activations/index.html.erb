@@ -14,8 +14,8 @@
 
     <%= link_to "View Profile", user_profile_path(user, user.profile) %>
 
-  <div id="activation">
-    <%= render "activations/form", user :user %>
+  <div id=<%= dom_id(user) %>>
+    <%= render "activations/form", user: user %>
   </div>
 
   <hr>
