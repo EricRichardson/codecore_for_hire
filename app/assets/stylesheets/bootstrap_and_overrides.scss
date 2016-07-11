@@ -9,6 +9,10 @@ body { padding-top: 120px; }
   padding-bottom: 80px;
 }
 
+.special-button {
+  margin-top: 10px;
+}
+
 img {
   width: 140px;
   position: relative;
@@ -41,7 +45,6 @@ input.btn-primary:hover, .btn-primary:active:hover, .btn-primary:focus, .btn-pri
   .container {
     padding-left: 150px;
     padding-right: 150px;
-    margin: 0px;
   }
 
   body > div > div.well.bs-component {
@@ -372,11 +375,7 @@ body > div > div > p{
   color: white ;
 }
 
-// youtube video background
-.jumbotron{
-  position: relative;
-  z-index:-101;
-}
+
 
 .full-width {
   position: absolute;
