@@ -3,6 +3,12 @@
 @import "bootstrap";
 @import "bootswatch/paper/bootswatch";
 body { padding-top: 100px; }
+
+.container {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
 img { width: 140px;
       position: relative;
       top: -4px;
@@ -10,11 +16,11 @@ img { width: 140px;
 
 //Sign-in button
 
-#loginModal > div > div > div.modal-body > form > fieldset > div:nth-child(4) > div > input.btn-primary {
+input.btn-primary, .btn-primary {
   background-color: #CB0D0F;
 }
 
-#loginModal > div > div > div.modal-body > form > fieldset > div:nth-child(4) > div > input.btn-primary:hover, .btn-primary:active:hover, .btn-primary:focus {
+input.btn-primary:hover, .btn-primary:active:hover, .btn-primary:focus, .btn-primary:hover {
   background-color: #A00000;
 }
 
@@ -76,11 +82,12 @@ img { width: 140px;
 }
 
 
-@media (max-width: 790px) {
+@media (max-width: 886px) {
   .container-fluid {
     padding-left: 10px;
     padding-right: 10px;
   }
+
 
   .form-control {
     display: inline-block;
@@ -251,4 +258,17 @@ img { width: 140px;
    white-space: -pre-wrap;     /* Opera <7 */
    white-space: -o-pre-wrap;   /* Opera 7 */
    word-wrap: break-word;      /* IE */
+}
+
+i.fa {
+   font-size: 30px;
+   margin: 4px;
+   bottom: 3px;
+}
+
+// Edit Education in Show profile
+
+#education-edit-form > div, #experience-edit-form > div {
+  box-shadow: 2px 2px 10px #888888;
+  width: 500px;
 }

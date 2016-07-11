@@ -1,18 +1,15 @@
-<div>
   <% profile.educations.each do |education| %>
     <div>
-      <%= education.school %><br>
-      <%= education.description %>
-      <%= education.link %>
-      <%= education.major %>
-      <%= education.start %>
-      <%= education.end %>
+      <h4><%= education.school %></h4>
+      <h5><%= education.major %></h5>
+      <%= education.start %> - <%= education.end %><br>
+      <%= education.description %><br>
+      <%#= education.link %>
       <% if can? :manage, profile %>
-      <%= link_to "Edit", edit_user_profile_education_path(profile.user, profile, education), remote: :true %>
-      <div id="education-edit-form"></div>
-      <%= link_to "Delete", user_profile_education_path(profile.user, profile, education), method: :delete, data:  {confirm: "Are you sure?" } %>
+        <%= link_to "Edit", edit_user_profile_education_path(profile.user, profile, education), remote: :true %>
+        <%= link_to "Delete", user_profile_education_path(profile.user, profile, education), method: :delete, data:  {confirm: "Are you sure?" } %>
+        <div id="education-edit-form"></div>
       <% end %>
       <hr>
-    <% end %>
     </div>
-</div>
+  <% end %>
