@@ -1,5 +1,5 @@
 <div class = 'well bs-component'>
-  <legend>Edit Skill</legend>
+  <legend>Add Skill</legend>
   <% @skill.errors.full_messages.join(", ") %>
 <%= simple_form_for [@user, @profile, @skill] do |f| %>
   <%= f.input :name %>

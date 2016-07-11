@@ -2,7 +2,7 @@
   <% profile.experiences.each do |experience|  %>
   <div>
       <h4><%= experience.company %></h4>
-      <h4 style="color: grey"><%= experience.title %></h4>
+      <h5 style="color: grey"><%= experience.title %></h5>
       <%= experience.start %> - <%= experience.end %><br>
       <%= experience.description %><br>
       <% if can? :manage, profile %>

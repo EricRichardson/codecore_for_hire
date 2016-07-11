@@ -1,7 +1,7 @@
   <% profile.educations.each do |education| %>
     <div>
       <h4><%= education.school %></h4>
-      <h5><%= education.major %></h5>
+      <h5 style="color: grey"><%= education.major %></h5>
       <%= education.start %> - <%= education.end %><br>
       <%= education.description %><br>
       <%#= education.link %>
