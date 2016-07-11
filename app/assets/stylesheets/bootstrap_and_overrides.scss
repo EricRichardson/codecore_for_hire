@@ -193,6 +193,7 @@ input.btn-primary:hover, .btn-primary:active:hover, .btn-primary:focus, .btn-pri
 }
 
 .jumbo-home {
+  position: relative !important;
   text-align: center;
 }
 
@@ -331,17 +332,49 @@ input.btn-primary:hover, .btn-primary:active:hover, .btn-primary:focus, .btn-pri
    color:    white;
 }
 
-.jumbotron {
-  background-image: url("codecore.png");
-  transition: 1000ms;
+// .jumbotron {
+//   background-image: url("http://www.placecage.com/200/300");
+//   transition: 1000ms;
+// }
+//
+// .jumbotron:hover {
+//   background-image: url("http://www.placecage.com/300/200");
+//   transition: 1000ms;
+// }
+
+// making three buttons same height
+body > div > div > a{
+  height: 105px;
 }
 
-body > div > div > a:nth-child(3):hover {
-  .jumbotron {
-    background-image: url("codecore2.png");
-    transition: 1000ms;
-  }
+body > div > div > h1, body > div > div > p{
+  color: white !important;
 }
+
+// youtube video background
+.jumbotron{
+  position: relative;
+  z-index:-101;
+}
+
+iframe {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background-size: cover;
+  overflow: hidden;
+}
+
+// #sign-up{
+//   display: flex;
+//   align-items:center;
+//   justify-content:center;
+// }
 
 .wordwrap {
    white-space: pre-wrap;      /* CSS3 */

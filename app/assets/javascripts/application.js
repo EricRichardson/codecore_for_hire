@@ -28,9 +28,18 @@
 //     $(this).css("border","");
 //   });
 // });
-
 $('document').ready(function() {
   setTimeout(function() {
-    $('#flash').fadeOut().slideUp();
+    $('#flash').slideUp();
   }, 3000);
 });
+// $(document).ready(function(){
+//   $('#sign-in-form').submit(function(){
+//     if($('.alert-danger').html() === "Wrong credentials"){
+//
+//       return false;
+//     } else {
+//       return true;
+//     }
+//   })
+// })
