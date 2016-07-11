@@ -1,26 +1,29 @@
 <h1><%= @header %></h1>
-
-<% @users.each do |user| %>
-  <div>
-    <% if user.image.file.nil? %>
-      <%= image_tag("default_profile_picture.png") %>
-    <% else %>
-      <%= image_tag(user.image.url(:medium)) %>
-    <% end %>
-  </div>
-  <div>
-    <%= user.full_name %>
-  </div>
-
-    <%= link_to "View Profile", user_profile_path(user, user.profile) %>
-
-  <div id="activation">
-    <% if can? :manage, @user %>
-      <%= render "activations/form", {user: user} %>
-    <% end %>
-  </div>
-
-  <hr>
-<% end %>
-
-<%= paginate @users %>
+<div class="index-container">
+  <% @users.each do |user| %>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xsm-12 user-index">
+      <% if user.image.file.nil? %>
+        <div class="profile-box">
+          <%= image_tag("default_profile_picture.png") %>
+        </div>
+      <% else %>
+        <div class="profile-box">
+          <%= image_tag(user.image.url(:medium)) %>
+        </div>
+      <% end %>
+      <hr>
+      <h5 class="user_box"><%= user.full_name %></h5>
+​
+      <p class="user_box"><%= link_to "View Profile", user_profile_path(user, user.profile), class: "btn btn-link" %></p>
+​
+      <div class="user_box">
+        <% if can? :manage, @user %>
+          <%= render "activations/form", {user: user} %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<!-- <div class="paginate-bar" > -->
+  <%#= paginate @users %>
+<!-- </div> -->

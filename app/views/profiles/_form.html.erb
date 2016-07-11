@@ -1,9 +1,11 @@
-
-<%= simple_form_for [@profile.user, @profile] do |f| %>
-  <%= f.input :twitter %>
-  <%= f.input :linkedin %>
-  <%= f.input :github %>
-  <%= f.input :resume, multiple: true %>
-  <%= f.input :description %>
-  <%= f.button :submit, class: "btn-primary" %>
-<% end %>
+<div class = 'well bs-component'>
+  <legend>New User</legend>
+    <%= simple_form_for [@profile.user, @profile] do |f| %>
+      <%= f.input :twitter, placeholder: "https://twitter.com/taylorswift13" %>
+      <%= f.input :linkedin, placeholder: "https://www.linkedin.com/in/rbranson" %>
+      <%= f.input :github, placeholder: "https://github.com/tkbeili" %>
+      <%= f.input :resume, multiple: true %>
+      <%= f.input :description %>
+      <%= f.button :submit, class: "btn-primary" %>
+    <% end %>
+</div>

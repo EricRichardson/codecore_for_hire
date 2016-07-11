@@ -28,3 +28,9 @@
 //     $(this).css("border","");
 //   });
 // });
+
+$('document').ready(function() {
+  setTimeout(function() {
+    $('#flash').fadeOut().slideUp();
+  }, 3000);
+});
