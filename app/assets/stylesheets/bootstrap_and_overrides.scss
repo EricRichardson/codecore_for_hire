@@ -2,7 +2,11 @@
 @import "bootswatch/paper/variables";
 @import "bootstrap";
 @import "bootswatch/paper/bootswatch";
-body { padding-top: 100px; }
+body {
+      padding-top: 100px;
+      margin-bottom: 60px;
+    }
+
 img { width: 140px;
       position: relative;
       top: -4px;
@@ -253,5 +257,17 @@ body > div > a:nth-child(16)
    word-wrap: break-word;      /* IE */
 }
 
-
-///////////////////////////////////////
+html{
+  position: relative;
+  min-height: 100%;
+}
+//Footer
+footer.foot {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #CB0D0F;
+  text-align: center;
+  color: grey;
+}
