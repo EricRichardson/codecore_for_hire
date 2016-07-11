@@ -8,7 +8,10 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new profile_params
     @profile.user = User.find params[:user_id]
-    @profile.user.profile = @profile
+    @description = Description.new body: "Enter your description here. Click the top right icon to edit"
+    @profile.description = @description
+    
+
     if @profile.save
       redirect_to user_profile_path(@profile.user, @profile), notice: "Updated Project"
     else

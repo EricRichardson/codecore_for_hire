@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
+<<<<<<< HEAD
     @profile = Profile.new
     @profile.user = @user
     @user.profile = @profile
