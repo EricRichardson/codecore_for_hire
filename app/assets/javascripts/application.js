@@ -33,6 +33,7 @@ $('document').ready(function() {
     $('#flash').slideUp();
   }, 3000);
 });
+
 // $(document).ready(function(){
 //   $('#sign-in-form').submit(function(){
 //     if($('.alert-danger').html() === "Wrong credentials"){

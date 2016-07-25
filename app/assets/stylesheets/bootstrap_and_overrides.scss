@@ -251,9 +251,9 @@ input.btn-primary:hover, .btn-primary:active:hover, .btn-primary:focus, .btn-pri
   top: -3px;
 }
 
-.intro {
+h1.intro, .intro {
   margin-top: 10px;
-
+  color: white;
 }
 
 
@@ -354,16 +354,9 @@ input.btn-primary:hover, .btn-primary:active:hover, .btn-primary:focus, .btn-pri
 }
 
 .jumbotron {
-  background-image: url("codecore.png");
+  background-image: url("computer.jpg");
+  background-size: cover;
 }
-//
-// .jumbotron:hover {
-//   background-image: url("http://www.placecage.com/300/200");
-//   transition: 1000ms;
-// }
-
-// making three buttons same height
-
 
 footer > div > p,
 footer > div > a{

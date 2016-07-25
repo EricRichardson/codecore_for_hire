@@ -32,7 +32,7 @@
 </div>
 
 <ul class="nav nav-tabs">
-  <li class=""><a href="#skills" data-toggle="tab" aria-expanded="false"><h4>Skills</h4></a></li>
+  <li class="active"><a href="#skills" data-toggle="tab" aria-expanded="false"><h4>Skills</h4></a></li>
   <li class=""><a href="#projects" data-toggle="tab" aria-expanded="false"><h4>Projects</h4></a></li>
   <li class=""><a href="#education" data-toggle="tab" aria-expanded="false"><h4>Education</h4></a></li>
   <li class=""><a href="#experiences" data-toggle="tab" aria-expanded="false"><h4>Experiences</h4></a></li>
@@ -40,7 +40,7 @@
 
 <div id="myTabContent" class="tab-content">
 
-  <div class="tab-pane fade" id="skills">
+  <div class="tab-pane fade in active" id="skills">
     <div>
       <% if can? :manage, @profile %>
         <%= link_to "Add Skills", new_user_profile_skill_path(@profile.user, @profile), remote: :true %>
